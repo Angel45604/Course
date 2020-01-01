@@ -1,0 +1,23 @@
+{
+    "courses": [
+        {
+            "title": "Terminal y Linea de Comandos",
+            "subject": "Conceptos Básicos",
+            "content": [
+                "Qué es y cómo funciona la terminal",
+                "Sistema de archivos",
+                "Administración y comunicación entre procesos",
+                "Usuarios, Grupos y Permisos",
+                "Compresión y combinación de archivos",
+                "Búsqueda de archivos",
+                "CURL y peticiones HTTP",
+                "Acceso remoto",
+                "Variables de entorno",
+                "Scheduler",
+                "Bash Scripts",
+                "Programación en Bash"
+            ],
+            "isReady": true
+        }
+    ]
+}
