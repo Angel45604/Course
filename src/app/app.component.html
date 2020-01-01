@@ -32,8 +32,8 @@
               {{course.subject}}
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <ul>
-            <li class="course-content" *ngFor= "let content of course.content">{{content}}</li>
+          <ul class="course-category">
+            <li  [class]="'course-category-'+course.category" *ngFor= "let content of course.content">{{content}}</li>
           </ul>
         </mat-expansion-panel>
       </mat-accordion>

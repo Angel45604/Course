@@ -1,46 +1,77 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnLoad, AfterViewInit } from '@angular/core';
 import CoursesJson from '../app/common/courses.json';
 import {Course} from './models/course';
+import {ColorScheme} from './models/ColorScheme';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnLoad, AfterViewInit {
   title = 'CourseWeb';
   panelOpenState = false;
   
   coursesJ: Array<Course> = [];
   course1: Course;
-
-
-  reziseGridItem(item) {
-    let grid = document.getElementsByClassName('courses')[0];
-    let rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-    let rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-    console.log('Row Gap', window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-    console.log(parseInt(item.getBoundingClientRect().height) + rowGap);
-    let rowSpan = Math.ceil((parseInt(item.querySelector('.content').getBoundingClientRect().height)+rowGap)/(rowGap));
-    item.style.gridRowEnd = "span "+rowSpan;
+  
+  colors = {
+    "CONCEPTOS_BASICOS":"#FF2EC4",
+    "CONTROL_DE_VERSIONES":"#2EFCFF",
+    "JAVA":"#FF902E",
+    "PYTHON":"#FF5900",
+    "CSHARP":"#FCFF2E",
+    "JAVASCRIPT":"#E1F00",
+    "DESARROLLO_WEB":"#FF2E2E",
+    "DESARROLLO_MOVIL":"#00E32A",
+    "DESARROLLO_MULTIPLATAFORMA":"#2E38FF",
+    "BASES_DE_DATOS":"#AB5722",
+    "INTELIGENCIA_ARTIFICIAL":"#AB2EFF",
+    "CLOUD_COMPUTING_SERVICES":"#FFD32E"
   }
 
-  resizeAllGridItems() {
-    let allItems = document.getElementsByClassName("card");
-    for(let x=0; x<allItems.length; x++) {
-       this.reziseGridItem(allItems[x]);
+  setColor() {
+
+  }
+
+  ngOnChanges() {
+    
+
+  }
+
+  ngAfterViewInit() {
+    let ul = document.getElementsByClassName('course-category');
+    for(let i = 0; i < ul.length; i++) {
+      let li = ul[i].getElementsByTagName('li');
+      for(let j = 0; j < li.length; j++) {
+        
+        li[j].style.backgroundImage = `linear-gradient(
+          90deg,
+          ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]]} 10px,
+          #EEE 10px,
+          #EEE 11px,
+          transparent 11px)`;
+          console.log(li[j].className);
+      }
     }
- }
+  }
 
   ngOnInit() {
-    //this.resizeAllGridItems();
-    console.log(CoursesJson.courses);
-
+    //console.log(CoursesJson.courses);
+    let str1 = 'course-category-megustanlosmemes';
+    let str2 = str1.split('-');
+    console.log('str2', str2[str2.length-1])
+    let li;
+    
     for(let i = 0; i< CoursesJson.courses.length; i++ ) {
       this.coursesJ.push(CoursesJson.courses[i]);
-      
+      //ul =(document.getElementsByClassName('course-category-'+CoursesJson.courses[i].category));
+      //for(let j = 0; j < ul.length; j++) {
+        //console.log('aaaa',)
+      //}
     }
     console.log(this.coursesJ);
+
   }
 
 }

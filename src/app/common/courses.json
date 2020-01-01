@@ -3,6 +3,7 @@
         {
             "title": "Terminal y Linea de Comandos",
             "subject": "Conceptos Básicos",
+            "category": "CONCEPTOS_BASICOS",
             "content": [
                 "Qué es y cómo funciona la terminal",
                 "Sistema de archivos",
@@ -22,6 +23,7 @@
         {
             "title": "Introducción a la computación",
             "subject": "Conceptos Básicos",
+            "category": "CONCEPTOS_BASICOS",
             "content": [
                 "Cómo funciona una computadora?",
                 "Bits/Bytes",
@@ -36,6 +38,7 @@
         {
             "title": "Programación Básica",
             "subject": "Conceptos Básicos",
+            "category": "CONCEPTOS_BASICOS",
             "content": [
                 "Por qué aprender a programar?",
                 "Definición de algoritmo",
@@ -52,6 +55,7 @@
         {
             "title": "Fundamentos de Redes e Internet",
             "subject": "Conceptos Básicos",
+            "category": "CONCEPTOS_BASICOS",
             "content": [
                 "Qué es y cómo funciona internet",
                 "Introducción a redes, protocolos e internet",
@@ -69,6 +73,7 @@
         {
             "title": "Git y Github",
             "subject": "Control de Versiones",
+            "category": "CONTROL_DE_VERSIONES",
             "content": [
                 "Qué es git?",
                 "Por qué usar un control de versiones?",
@@ -98,6 +103,7 @@
         {
             "title": "Introducción a la Inteligencia artificial y Machine Learning",
             "subject": "Inteligencia Artificial",
+            "category": "INTELIGENCIA_ARTIFICIAL",
             "content": [
                 "Qué es Machine Learning?",
                 "Modelos",
@@ -113,6 +119,7 @@
         {
             "title": "Redes Neuronales",
             "subject": "Inteligencia Artificial",
+            "category": "INTELIGENCIA_ARTIFICIAL",
             "content": [
                 "La Neurona",
                 "La Red",
@@ -126,6 +133,7 @@
         {
             "title": "Deep Learning",
             "subject": "Inteligencia Artificial",
+            "category": "INTELIGENCIA_ARTIFICIAL",
             "content": [
                 "Logistic Classifier",
                 "Multi Layer Perceptron",
@@ -137,6 +145,7 @@
         {
             "title": "Redes Convolucionales",
             "subject": "Inteligencia Artificial",
+            "category": "INTELIGENCIA_ARTIFICIAL",
             "content": [
                 ""
             ],
@@ -145,6 +154,7 @@
         {
             "title": "Redes Generativas Adversariales",
             "subject": "Inteligencia Artificial",
+            "category": "INTELIGENCIA_ARTIFICIAL",
             "content": [
                 ""
             ],
@@ -153,6 +163,7 @@
         {
             "title": "Tensor Flow",
             "subject": "Inteligencia Artificial",
+            "category": "INTELIGENCIA_ARTIFICIAL",
             "content": [
                 ""
             ],
@@ -161,6 +172,7 @@
         {
             "title": "Machine Learning aplicado a Python",
             "subject": "Inteligencia Artificial",
+            "category": "INTELIGENCIA_ARTIFICIAL",
             "content": [
                 ""
             ],
@@ -169,6 +181,7 @@
         {
             "title": "Algoritmos y Estructuras de Datos",
             "subject": "Undefined",
+            "category": "Undefined",
             "content": [
                 "Metodología para la construcción de algoritmos",
                 "User defined data types",
@@ -186,6 +199,7 @@
         {
             "title": "Conceptos Generales de Bases de Datos",
             "subject": "Bases de Datos",
+            "category": "BASES_DE_DATOS",
             "content": [
                 "Conceptos Básicos",
                 "Big Data",
@@ -201,6 +215,7 @@
         {
             "title": "Bases de Datos Relacionales",
             "subject": "Bases de Datos",
+            "category": "BASES_DE_DATOS",
             "content": [
                 "Qué son y para qué sirven",
                 "SQL",
@@ -221,6 +236,7 @@
         {
             "title": "Bases de Datos No Relacionales",
             "subject": "Bases de Datos",
+            "category": "BASES_DE_DATOS",
             "content": [
                 "NoSQL",
                 "Servicios administrados y jerarquía de datos",
@@ -232,6 +248,7 @@
         {
             "title": "Java",
             "subject": "Java",
+            "category": "JAVA",
             "content": [
                 "Programación orientada a objetos",
                 "JDK y JRE",
@@ -252,6 +269,7 @@
         {
             "title": "Python",
             "subject": "Python",
+            "category": "PYTHON",
             "content": [
                 ""
 
@@ -261,6 +279,7 @@
         {
             "title": "ASP .NET ",
             "subject": "C#",
+            "category": "CSHARP",
             "content": [
                 "Programación orientada a objetos",
                 "Interfaces y Regiones",
@@ -279,6 +298,7 @@
         {
             "title": "C y C++",
             "subject": "C",
+            "category": "C",
             "content": [
                 "Control de flujos",
                 "Directivas pre-compilador",
@@ -300,6 +320,7 @@
         {
             "title": "Introducción al desarrollo en Android",
             "subject": "Desarrollo Móvil",
+            "category": "DESARROLLO_MOVIL",
             "content": [
                 "Introducción a Android",
                 "Tipos de Dispositivos y Soporte",
@@ -324,14 +345,16 @@
         {
             "title": "Desarrollo en Android",
             "subject": "Desarrollo Móvil",
+            "category": "DESARROLLO_MOVIL",
             "content": [
                 ""
             ],
-            "isReady": true
+            "isReady": false
         },
         {
             "title": "Kotlin",
             "subject": "Desarrollo Móvil",
+            "category": "DESARROLLO_MOVIL",
             "content": [
                 "Programacion Funcional",
                 "Programación orientada a Objetos",
@@ -355,6 +378,7 @@
         {
             "title": "Flutter",
             "subject": "Desarrollo Móvil",
+            "category": "DESARROLLO_MOVIL",
             "content": [
                 ""
             ],
@@ -363,6 +387,7 @@
         {
             "title": "Angular",
             "subject": "Desarrollo Web",
+            "category": "DESARROLLO_WEB",
             "content": [
                 "Introducción a Angular",
                 "Angular CLI",
@@ -393,6 +418,7 @@
         {
             "title": "React",
             "subject": "Desarrollo Web",
+            "category": "DESARROLLO_WEB",
             "content": [
                 ""
             ],
@@ -401,6 +427,7 @@
         {
             "title": "VueJS",
             "subject": "Desarrollo Web",
+            "category": "DESARROLLO_WEB",
             "content": [
                 ""
             ],
@@ -409,6 +436,7 @@
         {
             "title": "Java Script",
             "subject": "Desarrollo Web",
+            "category": "DESARROLLO_WEB",
             "content": [
                 "Introducción a JavaScript",
                 "Tipos de Variables",
@@ -439,6 +467,7 @@
         {
             "title": "Node.js",
             "subject": "Desarrollo Web",
+            "category": "DESARROLLO_WEB",
             "content": [
                 ""
 
@@ -448,6 +477,7 @@
         {
             "title": "Frontend",
             "subject": "Desarrollo Web",
+            "category": "DESARROLLO_WEB",
             "content": [
                 ""
 
@@ -457,6 +487,7 @@
         {
             "title": "Backend",
             "subject": "Desarrollo Web",
+            "category": "DESARROLLO_WEB",
             "content": [
                 ""
 
@@ -466,6 +497,7 @@
         {
             "title": "PWA",
             "subject": "Desarrollo Multiplataforma",
+            "category": "DESARROLLO_MULTIPLATAFORMA",
             "content": [
                 ""
 
@@ -475,6 +507,7 @@
         {
             "title": "React Native",
             "subject": "Desarrollo Multiplataforma",
+            "category": "DESARROLLO_MULTIPLATAFORMA",
             "content": [
                 ""
 
@@ -484,6 +517,7 @@
         {
             "title": "Xamarin",
             "subject": "Desarrollo Multiplataforma",
+            "category": "DESARROLLO_MULTIPLATAFORMA",
             "content": [
                 ""
 
@@ -493,6 +527,7 @@
         {
             "title": "Electron",
             "subject": "Desarrollo Multiplataforma",
+            "category": "DESARROLLO_MULTIPLATAFORMA",
             "content": [
                 ""
 
@@ -502,6 +537,7 @@
         {
             "title": "Ionic",
             "subject": "Desarrollo Multiplataforma",
+            "category": "DESARROLLO_MULTIPLATAFORMA",
             "content": [
                 ""
 
@@ -511,6 +547,7 @@
         {
             "title": "Google Cloud Platform",
             "subject": "Cloud Computing Services",
+            "category": "CLOUD_COMPUTING_SERVICES",
             "content": [
                 ""
 
@@ -520,6 +557,7 @@
         {
             "title": "Amazon Web Services",
             "subject": "Cloud Computing Services",
+            "category": "CLOUD_COMPUTING_SERVICES",
             "content": [
                 ""
 
@@ -529,6 +567,7 @@
         {
             "title": "Azure",
             "subject": "Cloud Computing Services",
+            "category": "CLOUD_COMPUTING_SERVICES",
             "content": [
                 ""
 

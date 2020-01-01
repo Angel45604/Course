@@ -3,6 +3,7 @@
         {
             "title": "Terminal y Linea de Comandos",
             "subject": "Conceptos Básicos",
+            "category": "DESARROLLO_MOVIL",
             "content": [
                 "Qué es y cómo funciona la terminal",
                 "Sistema de archivos",
@@ -16,6 +17,38 @@
                 "Scheduler",
                 "Bash Scripts",
                 "Programación en Bash"
+            ],
+            "isReady": true
+        },
+        {
+            "title": "Introducción a la computación",
+            "subject": "Conceptos Básicos",
+            "category": "CONCEPTOS_BASICOS",
+            "content": [
+                "Cómo funciona una computadora?",
+                "Bits/Bytes",
+                "Procesamiento general",
+                "Procesamiento de propósito específico",
+                "Memoria RAM y almacenamiento",
+                "Entrada de información",
+                "Principios de sistemas operativos"
+            ],
+            "isReady": true
+        },
+        {
+            "title": "Programación Básica",
+            "subject": "Conceptos Básicos",
+            "category": "CONCEPTOS_BASICOS",
+            "content": [
+                "Por qué aprender a programar?",
+                "Definición de algoritmo",
+                "Lenguajes e intérpretes",
+                "Variables, tipos de datos y Funciones",
+                "Operadores lógicos y aritméticos",
+                "Estructuras de control ",
+                "Entrada y salida de datos",
+                "Estructuras de datos básicas",
+                "Input y Output Stream"
             ],
             "isReady": true
         }
