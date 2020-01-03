@@ -18,18 +18,19 @@ export class AppComponent implements OnInit, AfterViewInit {
   course1: Course;
   
   colors = {
-    "CONCEPTOS_BASICOS":"#FF2EC4",
-    "CONTROL_DE_VERSIONES":"#2EFCFF",
-    "JAVA":"#FF902E",
-    "PYTHON":"#FF5900",
-    "CSHARP":"#FCFF2E",
-    "JAVASCRIPT":"#E1F00",
-    "DESARROLLO_WEB":"#FF2E2E",
-    "DESARROLLO_MOVIL":"#00E32A",
-    "DESARROLLO_MULTIPLATAFORMA":"#2E38FF",
-    "BASES_DE_DATOS":"#AB5722",
-    "INTELIGENCIA_ARTIFICIAL":"#AB2EFF",
-    "CLOUD_COMPUTING_SERVICES":"#FFD32E"
+    "CONCEPTOS_BASICOS":"#C2185B,#AD1457,#880E4F",
+    "CONTROL_DE_VERSIONES":"#00796B,#00695C,#004D40",
+    "JAVA":"#F57C00,#EF6C00,#E65100",
+    "PYTHON":"#E64A19,#D84315,#BF360C",
+    "CSHARP":"#AFB42B,#9E9D24,#827717",
+    "JAVASCRIPT":"#FFFF00,#FFEA00,#FFD600",
+    "DESARROLLO_WEB":"#69F0AE,#00E676,#00C853",
+    "DESARROLLO_MOVIL":"#388E3C,#2E7D32,#1B5E20",
+    "DESARROLLO_MULTIPLATAFORMA":"#303F9F,#283593,#1A237E",
+    "BASES_DE_DATOS":"#0288D1,#0277BD,#01579B",
+    "INTELIGENCIA_ARTIFICIAL":"#7B1FA2,#6A1B9A,#4A148C",
+    "CLOUD_COMPUTING_SERVICES":"#455A64,#37474F,#263238",
+    "Undefined": "#212124,#3B3D62,#202135"
   }
 
   setColor() {
@@ -51,9 +52,9 @@ export class AppComponent implements OnInit, AfterViewInit {
         
         li[j].style.backgroundImage = `linear-gradient(
           90deg,
-          ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]]} 10px,
-          #EEE 10px,
-          #EEE 11px,
+          ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]].split(',')[0]} 11px,
+          ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]].split(',')[1]} 10px,
+          ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]].split(',')[2]} 10px,
           transparent 11px)`;
           console.log(li[j].className);
       }

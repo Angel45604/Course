@@ -23,7 +23,7 @@
         {
             "title": "Introducción a la computación",
             "subject": "Conceptos Básicos",
-            "category": "CONCEPTOS_BASICOS",
+            "category": "INTELIGENCIA_ARTIFICIAL",
             "content": [
                 "Cómo funciona una computadora?",
                 "Bits/Bytes",
@@ -38,7 +38,7 @@
         {
             "title": "Programación Básica",
             "subject": "Conceptos Básicos",
-            "category": "CONCEPTOS_BASICOS",
+            "category": "CLOUD_COMPUTING_SERVICES",
             "content": [
                 "Por qué aprender a programar?",
                 "Definición de algoritmo",
