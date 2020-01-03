@@ -19,8 +19,65 @@
 </section>
 <section id="courses">
   <div class="courses">
-    <div class="card" *ngFor= "let course of coursesJ; let i = index">
+    <!-- <div class="card" *ngFor= "let course of coursesJ; let i = index">
       <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             [disabled]="!course.isReady">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{course.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{course.subject}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ul class="course-category">
+            <li  [class]="'course-category-'+course.category" *ngFor= "let content of course.content">{{content}}</li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div> -->
+    <div class="card">
+      <mat-accordion *ngFor= "let course of coursesJ1">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             [disabled]="!course.isReady">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{course.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{course.subject}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ul class="course-category">
+            <li  [class]="'course-category-'+course.category" *ngFor= "let content of course.content">{{content}}</li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="card">
+      <mat-accordion *ngFor= "let course of coursesJ2">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             [disabled]="!course.isReady">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{course.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{course.subject}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ul class="course-category">
+            <li  [class]="'course-category-'+course.category" *ngFor= "let content of course.content">{{content}}</li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="card">
+      <mat-accordion *ngFor= "let course of coursesJ3">
         <mat-expansion-panel (opened)="panelOpenState = true"
                              (closed)="panelOpenState = false"
                              [disabled]="!course.isReady">

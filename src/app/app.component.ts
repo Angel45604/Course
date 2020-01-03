@@ -1,4 +1,4 @@
-import { Component, OnInit, OnLoad, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import CoursesJson from '../app/common/courses.json';
 import {Course} from './models/course';
 import {ColorScheme} from './models/ColorScheme';
@@ -8,11 +8,13 @@ import {ColorScheme} from './models/ColorScheme';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnLoad, AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'CourseWeb';
   panelOpenState = false;
   
-  coursesJ: Array<Course> = [];
+  coursesJ1: Array<Course> = [];
+  coursesJ2: Array<Course> = [];
+  coursesJ3: Array<Course> = [];
   course1: Course;
   
   colors = {
@@ -33,6 +35,8 @@ export class AppComponent implements OnInit, OnLoad, AfterViewInit {
   setColor() {
 
   }
+
+
 
   ngOnChanges() {
     
@@ -58,19 +62,26 @@ export class AppComponent implements OnInit, OnLoad, AfterViewInit {
 
   ngOnInit() {
     //console.log(CoursesJson.courses);
-    let str1 = 'course-category-megustanlosmemes';
-    let str2 = str1.split('-');
-    console.log('str2', str2[str2.length-1])
-    let li;
-    
+
+    let count = 1;
     for(let i = 0; i< CoursesJson.courses.length; i++ ) {
-      this.coursesJ.push(CoursesJson.courses[i]);
-      //ul =(document.getElementsByClassName('course-category-'+CoursesJson.courses[i].category));
-      //for(let j = 0; j < ul.length; j++) {
-        //console.log('aaaa',)
-      //}
+      //this.coursesJ.push(CoursesJson.courses[i]);
+      if(count == 1) {
+        this.coursesJ2.push(CoursesJson.courses[i]);
+      } else if(count == 2) {
+        this.coursesJ3.push(CoursesJson.courses[i]);
+      } else {
+        this.coursesJ1.push(CoursesJson.courses[i]);
+      }
+      count++;
+      if(count > 3 ) {
+        count = 1;
+      }
     }
-    console.log(this.coursesJ);
+
+    console.log(this.coursesJ1);
+    console.log(this.coursesJ2);
+    console.log(this.coursesJ3);
 
   }
 
