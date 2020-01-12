@@ -1,0 +1,39 @@
+.navbar{
+    display : flex;
+    justify-content : space-between;
+    padding : 65px 45px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    margin : 0 15px;
+    padding: 10px 0;
+    color : #fff;
+  }
+  
+  .navbar-brand {
+    float : left;
+    display : block;
+    
+  }
+  
+  .navbar-navigation {
+    padding:10px;
+    text-align:right;
+  }
+  
+  .navbar-navigation a {
+    display:inline-block;
+  }
+  
+  .navbar-navigation a:hover {
+    color : #fff;
+    border-bottom: solid 4px #45AFE3;
+    transition: border-width 0.1s linear;
+  }
+
+  .active {
+    color : #fff;
+    border-bottom: solid 4px #45AFE3;
+    transition: border-width 0.1s linear;
+  }

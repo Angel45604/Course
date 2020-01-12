@@ -1,0 +1,61 @@
+<section class="container">
+    <section class="main">
+        <app-header></app-header>
+      <main class="wrapper">
+        <div class="content">
+          <span class="pill">27 Registrados</span>
+          <h1>CodwA</h1>
+          <p class="summary">No se que poner aqui, igual y una descripcion o una introduccion a esta cosa No se que poner aqui, igual y una descripcion o una introduccion a esta cosa No se que poner aqui, igual y una descripcion o una introduccion a esta cosa</p>
+          <a routerLink="sign-in"><button  class="signup">Empieza Ahora</button></a>
+          <p class="note"> {{width}} x {{height}}</p>
+          <p class="note">{{innerwidth}} x {{innerheight}}</p>
+          <div class="note">{{pixelRatio}}</div>
+          <div class="note">{{resolution}}</div>
+        </div>
+        <div class="image">
+          <!-- <svg viewBox="0 0 424 492" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+  <filter x="-25.5%" y="-311.8%" width="151.1%" height="723.6%" filterUnits="objectBoundingBox" id="a">
+  <feGaussianBlur stdDeviation="25.829" in="SourceGraphic"></feGaussianBlur>
+  </filter>
+  </defs>
+  <g transform="translate(35.5 -.35)" fill="none" fill-rule="evenodd">
+  <rect filter="url(#a)" x=".3" y=".6" width="303.45" height="24.85" rx="12.425" transform="translate(13.15 407.5)" fill="#000" fill-opacity=".32"></rect>
+  <g transform="scale(-1 1) rotate(-18 324.718 1407.838)">
+  <path d="M30.5 63.66h-1.74a3.76 3.76 0 1 1 0-7.519h47.98a3.76 3.76 0 0 1 0 7.519H74v44.408l29.837 63.096c4.604 9.736.443 21.36-9.292 25.964A19.5 19.5 0 0 1 86.208 199H19.792c-10.77 0-19.5-8.73-19.5-19.5 0-2.883.639-5.73 1.871-8.336L30.5 111.24V63.66z" fill="#4C4C66"></path>
+  <path d="M84.586 154.053l10.115 24.705a8.5 8.5 0 0 1-7.866 11.72H15.477a8.5 8.5 0 0 1-7.792-11.896l6.841-15.697a7.5 7.5 0 0 1 8.414-4.344c4.398.922 9.807 1.02 16.227.296 8.692-.981 14.017-5.325 24.95-8.133 2.385-.612 6.795-1.047 13.23-1.303a7.5 7.5 0 0 1 7.24 4.652z" fill="#FE672C"></path>
+  <ellipse fill="#CD5323" cx="51.25" cy="168.173" rx="4.75" ry="4.762"></ellipse>
+  <ellipse fill="#CD5323" cx="42" cy="177.947" rx="3.5" ry="3.509"></ellipse>
+  <path d="M40.297 199H19.825c-10.77 0-19.5-8.752-19.5-19.55 0-2.896.642-5.756 1.88-8.373L30.5 111.24V63.66H74v10.434H43.375v35.5c-6.293 25.795-9.853 50.722-10.682 74.78.418 7.341 2.952 12.217 7.604 14.626z" fill-opacity=".3" fill="#262633" style="mix-blend-mode:multiply"></path>
+  <ellipse fill="#FE672C" cx="61.75" cy="31.329" rx="7.25" ry="7.268"></ellipse>
+  <ellipse fill="#FE672C" cx="36.75" cy="5.263" rx="5.25" ry="5.263"></ellipse>
+  </g>
+  <g transform="scale(-1 1) rotate(18 -379.698 -190.943)">
+  <path d="M4.5 66.681h71.933a4.5 4.5 0 0 1 4.3 5.827l-4.764 15.44V170c0 7.732-6.268 14-14 14H14c-7.732 0-14-6.268-14-14V71.181a4.5 4.5 0 0 1 4.5-4.5z" fill="#4C4C66"></path>
+  <rect fill="#45AFE3" x="9.056" y="106.289" width="58.863" height="70.191" rx="4.5"></rect>
+  <ellipse fill="#4896BD" cx="33.205" cy="135.869" rx="5.031" ry="5.014"></ellipse>
+  <ellipse fill="#4896BD" cx="49.807" cy="161.94" rx="5.031" ry="5.014"></ellipse>
+  <ellipse fill="#4896BD" cx="53.078" cy="122.082" rx="3.27" ry="3.259"></ellipse>
+  <path d="M4.5 66.681h25.177c-2.122.913-3.22 2.039-3.297 3.377-1.963 34.352 0 71.386 0 105.815 0 2.666 1.099 5.375 3.297 8.127H14c-7.732 0-14-6.268-14-14V71.181a4.5 4.5 0 0 1 4.5-4.5z" fill-opacity=".6" fill="#262633" style="mix-blend-mode:multiply" opacity=".631"></path>
+  <ellipse fill="#45AFE3" cx="19.873" cy="41.864" rx="5.786" ry="5.766"></ellipse>
+  <ellipse fill="#45AFE3" cx="53.581" cy="7.27" rx="7.295" ry="7.27"></ellipse>
+  </g>
+  <g transform="rotate(-10 580.487 -696.959)">
+  <path d="M82 7.5v37.932c22.799 8.67 39 30.727 39 56.568 0 33.413-27.087 60.5-60.5 60.5S0 135.413 0 102c0-25.841 16.201-47.898 39-56.568V7.5h-2.25a3.75 3.75 0 0 1 0-7.5h48a3.75 3.75 0 0 1 0 7.5H82z" fill="#4C4C66"></path>
+  <path d="M60.5 153.617c27.89 0 52.65-27.633 48.042-56.479-15.082-8.627-26.81 4.502-36.604-2.077-26.895-18.066-62.551-8.488-62.551 5.374 0 27.89 23.223 53.182 51.113 53.182z" fill="#F8126A"></path>
+  <circle fill="#A42C5A" cx="47.25" cy="113.25" r="7.75"></circle>
+  <circle fill="#A42C5A" cx="70.25" cy="131.75" r="5.25"></circle>
+  <path d="M36.75 7.5H39v37.932C16.201 54.102 0 76.159 0 102c0 31.326 23.844 58.66 58.853 60.59-21.196-4.304-31.534-26.753-31.014-67.348.28-21.817 7.79-38.064 22.531-48.742V17.944H82V7.5H36.75z" fill="#3D3D52" style="mix-blend-mode:multiply" opacity=".417"></path>
+  </g>
+  <circle fill="#F8126A" cx="169.08" cy="27.282" r="7.75"></circle>
+  <circle fill="#F8126A" cx="212.028" cy="6.107" r="5.25"></circle>
+  <circle fill="#F8126A" cx="213.963" cy="45.875" r="5.25"></circle>
+  </g>
+  </svg> -->
+  
+        </div>  
+      </main>  
+    </section>
+    <app-courses></app-courses>
+  </section>
+  <router-outlet></router-outlet>

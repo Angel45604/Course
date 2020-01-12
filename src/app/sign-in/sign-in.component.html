@@ -1,0 +1,54 @@
+  <mat-vertical-stepper linear="false" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Ingresa tus datos</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Apellidos, Nombre" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input  matInput placeholder="No. Boleta" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button  mat-flat-button color="primary" matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <ng-template matStepLabel>Selecciona tus cursos</ng-template>
+        <div class="searcher">
+          <div>
+            <mat-form-field class="example-full-width">
+              <input type="search" matInput [(ngModel)]="searchText" placeholder="Categoría">
+              <mat-icon matSuffix color="accent">search</mat-icon>
+            </mat-form-field>
+          </div>
+          <!-- <ul *ngFor="let data of coursesJ | filter: searchText">
+            <li>{{data.title}}</li>
+          </ul> -->
+          <form [formGroup]="secondFormGroup">
+          <mat-list>
+            <ng-container *ngFor="let cat of categories | filter: searchText | keyvalue" >
+              <h2 mat-subheader>{{cat.key | word | titlecase}}</h2>
+              <ng-container *ngFor="let course of cat.value">
+                <mat-list-item *ngIf="course.isReady">
+                  <mat-checkbox >{{course.title}}</mat-checkbox>
+                  <!-- <p mat-line> {{folder.updated | date}} </p> -->
+                </mat-list-item>
+              </ng-container>
+              <mat-divider></mat-divider>
+            </ng-container>
+            
+          </mat-list>
+        </form>
+        </div>
+        <div>
+          <button mat-flat-button color="primary" matStepperPrevious>Anterior</button>
+          <button mat-flat-button color="primary" matStepperNext>Siguiente</button>
+        </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Listo</ng-template>
+      <button mat-raised-button color="accent">Registrate</button>
+    </mat-step>
+  </mat-vertical-stepper>
