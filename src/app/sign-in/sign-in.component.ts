@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import CoursesJson from '../../app/common/courses.json';
 import { Course } from '../models/course.js';
+import { User } from '../models/user.js';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,6 +11,7 @@ import { Course } from '../models/course.js';
 })
 export class SignInComponent implements OnInit, AfterViewInit {
 
+  searchText;
   categories:Object;
   mostrar = false;
   isLinear = false;
@@ -18,7 +20,24 @@ export class SignInComponent implements OnInit, AfterViewInit {
   coursesJ: Array<Course> = [];
   dataset = ['MDB', 'Angular', 'Bootstrap', 'Framework', 'SPA', 'React', 'Vue'];
 
-  constructor(private _formBuilder: FormBuilder) {}
+  user:User;
+
+  constructor(private _formBuilder: FormBuilder) {
+    this.user = new User();
+  }
+
+  clicked(course, isChecked) {
+    if(isChecked) {
+      this.user.courses.push(course.title);
+    } else {
+      let index = this.user.courses.indexOf(course.title);
+      this.user.courses.splice(index,1);
+    }
+  }
+
+  register() {
+    console.log("User:", this.user);
+  }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -48,20 +67,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
 }
 
   ngAfterViewInit() {
-    let ul = document.getElementsByClassName('course-category');
-    for(let i = 0; i < ul.length; i++) {
-      let li = ul[i].getElementsByTagName('li');
-      for(let j = 0; j < li.length; j++) {
-        
-        li[j].style.backgroundImage = `linear-gradient(
-          90deg,
-          ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]].split(',')[0]} 11px,
-          ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]].split(',')[1]} 10px,
-          ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]].split(',')[2]} 10px,
-          transparent 11px)`;
-          console.log(li[j].className);
-      }
-    }
+
   }
 
 

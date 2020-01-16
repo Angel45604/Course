@@ -22,17 +22,22 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input'; 
 import {MatListModule} from '@angular/material/list'; 
 import {MatSelectModule} from '@angular/material/select'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree'; 
+
 import { CoursesComponent } from './courses/courses.component';
+import { SpecialCoursesComponent } from './special-courses/special-courses.component';
 import { FilterPipe } from './filter.pipe';
 import { WordPipe } from './word.pipe';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: LandingComponent},
-  {path: 'sign-in', component: SignInComponent}
+  {path: 'sign-in', component: SignInComponent},
+  {path: 'special-courses', component: SpecialCoursesComponent}
 ]
 @NgModule({
   declarations: [
@@ -41,9 +46,10 @@ const appRoutes: Routes = [
     SignInComponent,
     HeaderComponent,
     CoursesComponent,
+    SpecialCoursesComponent,
     FilterPipe,
-    WordPipe
-    
+    WordPipe,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +68,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatListModule,
     MatSelectModule,
+    MatSidenavModule,
     MatStepperModule,
     MatToolbarModule,
     MatTreeModule,

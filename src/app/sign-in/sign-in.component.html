@@ -3,11 +3,11 @@
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Ingresa tus datos</ng-template>
         <mat-form-field>
-          <input matInput placeholder="Apellidos, Nombre" formControlName="firstCtrl" required>
+          <input matInput placeholder="Apellidos, Nombre" formControlName="firstCtrl" [(ngModel)]="user.name" required>
         </mat-form-field>
         <br>
         <mat-form-field>
-          <input  matInput placeholder="No. Boleta" formControlName="firstCtrl" required>
+          <input  matInput placeholder="No. Boleta" formControlName="firstCtrl" [(ngModel)]="user.id" required>
         </mat-form-field>
         <div>
           <button  mat-flat-button color="primary" matStepperNext>Siguiente</button>
@@ -32,7 +32,7 @@
               <h2 mat-subheader>{{cat.key | word | titlecase}}</h2>
               <ng-container *ngFor="let course of cat.value">
                 <mat-list-item *ngIf="course.isReady">
-                  <mat-checkbox >{{course.title}}</mat-checkbox>
+                  <mat-checkbox (change)="clicked(course, $event.checked)" value="{{course.title}}">{{course.title}}</mat-checkbox>
                   <!-- <p mat-line> {{folder.updated | date}} </p> -->
                 </mat-list-item>
               </ng-container>
@@ -49,6 +49,6 @@
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Listo</ng-template>
-      <button mat-raised-button color="accent">Registrate</button>
+      <button mat-raised-button color="accent" (click)="register()">Registrate</button>
     </mat-step>
   </mat-vertical-stepper>

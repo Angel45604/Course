@@ -1,2 +1,2 @@
-<app-header *ngIf="router.isActive('/sign-in')"></app-header>
+<app-header *ngIf="!router.isActive('', true)"></app-header>
 <router-outlet></router-outlet>

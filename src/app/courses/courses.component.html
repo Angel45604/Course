@@ -1,9 +1,7 @@
 <div class="courses">
     <div class="card">
       <mat-accordion *ngFor= "let course of coursesJ1">
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false"
-                             [disabled]="!course.isReady">
+        <mat-expansion-panel [disabled]="!course.isReady">
           <mat-expansion-panel-header>
             <mat-panel-title>
               {{course.title}}
@@ -20,9 +18,7 @@
     </div>
     <div class="card">
       <mat-accordion *ngFor= "let course of coursesJ2">
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false"
-                             [disabled]="!course.isReady">
+        <mat-expansion-panel [disabled]="!course.isReady">
           <mat-expansion-panel-header>
             <mat-panel-title>
               {{course.title}}
@@ -39,9 +35,7 @@
     </div>
     <div class="card">
       <mat-accordion *ngFor= "let course of coursesJ3">
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false"
-                             [disabled]="!course.isReady">
+        <mat-expansion-panel [disabled]="!course.isReady">
           <mat-expansion-panel-header>
             <mat-panel-title>
               {{course.title}}

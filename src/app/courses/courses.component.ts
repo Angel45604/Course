@@ -13,7 +13,6 @@ export class CoursesComponent implements OnInit, AfterViewInit {
   coursesJ1: Array<Course> = [];
   coursesJ2: Array<Course> = [];
   coursesJ3: Array<Course> = [];
-  course1: Course;
   
   colors = {
     "CONCEPTOS_BASICOS":"#C2185B,#AD1457,#880E4F",
