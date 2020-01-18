@@ -6,10 +6,9 @@ import { KeyValuePipe } from '@angular/common';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(items: any, searchText: string) {
-    //console.log(items)
+  transform(items: Array<Object>, searchText: string) {
     if (!items) {
-      return {};
+      return [];
     }
     if (!searchText) {
       return items;
@@ -21,13 +20,14 @@ export class FilterPipe implements PipeTransform {
     //   // console.log(it.key.toLocaleLowerCase().includes(searchText));
     //   it.key.toLocaleLowerCase().includes(searchText);
     // });
-    let tmp = {};
-    for (let k in items) {
+    let tmp = [];
+    for (let k of items) {
       //console.log(k)
-      if(k.toLocaleLowerCase().includes(searchText)) {
-        tmp[k]=items[k];
+      if(k['title'].toLocaleLowerCase().includes(searchText)) {
+        tmp.push(k);
       }
     }
+    console.log('Items', items)
     console.log('tmp',tmp);
 
     return tmp;

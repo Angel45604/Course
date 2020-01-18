@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import CoursesJson from '../../app/common/courses.json';
 import { Course } from '../models/course.js';
@@ -6,6 +6,8 @@ import { User } from '../models/user.js';
 import { Observable } from 'rxjs';
 import { startWith } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
+import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import { MatChipInputEvent, MatChipEvent } from '@angular/material/chips';
 
 @Component({
   selector: 'app-sign-in',
@@ -24,7 +26,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
   dataset = ['MDB', 'Angular', 'Bootstrap', 'Framework', 'SPA', 'React', 'Vue'];
   categoryTitle = [];
   filteredOptions: Observable<string[]>;
-  selectedOptions = [];
+  selectedOptions = "";
+  selectedCategories:Object;
   myControl = new FormControl();
 
   user:User;
@@ -33,15 +36,71 @@ export class SignInComponent implements OnInit, AfterViewInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  separatorKeysCodes: number[] = [ENTER, COMMA];
+  fruitCtrl = new FormControl();
+  filteredFruits: Observable<string[]>;
+  fruits: string[] = [];
+  allFruits: string[] = [];
+
+  @ViewChild('fruitInput', {static: false}) fruitInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
   
 
   constructor(private _formBuilder: FormBuilder) {
     this.user = new User();
+    this.user.courses = [];
+    this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
+      startWith(null),
+      map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice()));
+  }
+
+  add(event: MatChipInputEvent): void {
+    // Add fruit only when MatAutocomplete is not open
+    // To make sure this does not conflict with OptionSelected Event
+    if (!this.matAutocomplete.isOpen) {
+      const input = event.input;
+      const value = event.value;
+
+      // Add our fruit
+      if ((value || '').trim()) {
+        this.fruits.push(value.trim());
+      }
+
+      // Reset the input value
+      if (input) {
+        input.value = '';
+      }
+
+      this.fruitCtrl.setValue(null);
+    }
+  }
+
+  remove(fruit: string): void {
+    const index = this.fruits.indexOf(fruit);
+
+    if (index >= 0) {
+      this.fruits.splice(index, 1);
+      this.selectedOptions = this.selectedOptions.replace( `|${fruit}|`, "");
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.fruits.push(event.option.value);
+    this.fruitInput.nativeElement.value = '';
+    this.fruitCtrl.setValue(null);
+    console.log(this.fruits);
+    this.selectedOptions += `|${event.option.value}|`
+
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
   }
 
   clicked(course, isChecked) {
+    console.log('course', this.user);
     if(isChecked) {
       this.user.courses.push(course.title);
     } else {
@@ -54,15 +113,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
     console.log("User:", this.user);
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.categoryTitle.filter(option => option.toLowerCase().includes(filterValue));
-  }
-
   selectCategory(value) {
     this.categoryTitle.splice(this.categoryTitle.indexOf(value), 1);
-    this.selectedOptions.push(value);
   }
 
   ngOnInit() {
@@ -83,12 +135,12 @@ export class SignInComponent implements OnInit, AfterViewInit {
   console.log(this.coursesJ);
 
   this.categories = this.coursesJ.reduce( (acc, obj) => {
-    !this.categoryTitle.includes(obj.category) ? this.categoryTitle.push(obj.category) : {};
+    !this.allFruits.includes(obj.category) ? this.allFruits.push(obj.category) : {};
     acc[obj.category] = acc[obj.category] || [];
     acc[obj.category].push(obj);
     return acc;
   }, {});
-  console.log("CAT", this.categoryTitle);
+  console.log("CAT", this.allFruits);
   console.log(this.categories);
 
   this.filteredOptions = this.myControl.valueChanges

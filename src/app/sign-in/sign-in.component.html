@@ -9,6 +9,10 @@
         <mat-form-field>
           <input  matInput placeholder="No. Boleta" formControlName="firstCtrl" [(ngModel)]="user.id" required>
         </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input type=""  matInput placeholder="Correo Electrónico" formControlName="firstCtrl" [(ngModel)]="user.email" required>
+        </mat-form-field>
         <div>
           <button  mat-flat-button color="primary" matStepperNext>Siguiente</button>
         </div>
@@ -23,44 +27,71 @@
               <mat-icon matSuffix color="accent">search</mat-icon>
             </mat-form-field> -->
             <mat-form-field class="example-chip-list">
-              <mat-chip-list #chipList>
+              <mat-chip-list #chipList aria-label="Fruit selection">
                 <mat-chip
-                  *ngFor="let selectedOption of selectedOptions"
+                  *ngFor="let fruit of fruits"
                   [selectable]="selectable"
                   [removable]="removable"
-                  (removed)="remove(selectedOption)">
-                  {{selectedOption}}
+                  (removed)="remove(fruit)">
+                  {{fruit | word | titlecase}}
                   <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                 </mat-chip>
                 <input
-                  placeholder="AAAAAAAAAA"
+                  placeholder="Categoría"
                   #fruitInput
-                  [formControl]="myControl"
+                  [formControl]="fruitCtrl"
                   [matAutocomplete]="auto"
                   [matChipInputFor]="chipList"
-                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                   [matChipInputAddOnBlur]="addOnBlur"
                   (matChipInputTokenEnd)="add($event)">
               </mat-chip-list>
               <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                  {{option}}
+                <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                  {{fruit | word | titlecase}}
                 </mat-option>
               </mat-autocomplete>
             </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input type="search" matInput [(ngModel)]="searchText" placeholder="Curso">
+              <mat-icon matSuffix color="accent">search</mat-icon>
+            </mat-form-field>
+            <mat-list>
+              <ng-container *ngFor="let cat of categories | myPipe: selectedOptions | keyvalue">
+                <h2 mat-subheader>{{cat.key | word | titlecase}}</h2>
+                <ng-container *ngFor="let course of cat.value | filter: searchText">
+                  <mat-list-item *ngIf="course.isReady">
+                    <mat-checkbox (change)="clicked(course, $event.checked)" value="{{course.title}}">{{course.title}}</mat-checkbox>
+                     <!-- <p mat-line> {{folder.updated | date}} </p> estovacomentado  -->
+                  </mat-list-item>
+                </ng-container>
+                <br>
+                <br>
+              </ng-container>
+              <!-- <ng-container *ngFor="let cat of categories | filter: searchText | keyvalue" >
+                <h2 mat-subheader>{{cat.key | word | titlecase}}</h2>
+                <ng-container *ngFor="let course of cat.value">
+                  <mat-list-item *ngIf="course.isReady">
+                    <mat-checkbox (change)="clicked(course, $event.checked)" value="{{course.title}}">{{course.title}}</mat-checkbox>
+                     <p mat-line> {{folder.updated | date}} </p> estovacomentado 
+                  </mat-list-item>
+                </ng-container>
+                <mat-divider></mat-divider>
+              </ng-container> -->
+              
+            </mat-list>
             
           </div>
           <!-- <ul *ngFor="let data of coursesJ | filter: searchText">
             <li>{{data.title}}</li>
           </ul> -->
-          <form [formGroup]="secondFormGroup">
+          <!-- <form [formGroup]="secondFormGroup">
           <mat-list>
             <ng-container *ngFor="let cat of categories | myPipe: searchtext">
               <h1>{{cat.category}}</h1>
               <p>{{cat.courses}}</p>
               <br>
               <br>
-            </ng-container>
+            </ng-container> -->
             <!-- <ng-container *ngFor="let cat of categories | filter: searchText | keyvalue" >
               <h2 mat-subheader>{{cat.key | word | titlecase}}</h2>
               <ng-container *ngFor="let course of cat.value">
@@ -72,8 +103,8 @@
               <mat-divider></mat-divider>
             </ng-container> -->
             
-          </mat-list>
-        </form>
+          <!-- </mat-list>
+        </form> -->
         </div>
         <div>
           <button mat-flat-button color="primary" matStepperPrevious>Anterior</button>
