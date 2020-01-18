@@ -12,9 +12,11 @@ import { LandingComponent } from './landing/landing.component';
 import {SignInComponent} from './sign-in/sign-in.component';
 
 //material
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatCardModule} from '@angular/material/card'; 
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import {MatChipsModule} from '@angular/material/chips'; 
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatExpansionModule} from '@angular/material/expansion'; 
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -32,6 +34,7 @@ import { SpecialCoursesComponent } from './special-courses/special-courses.compo
 import { FilterPipe } from './filter.pipe';
 import { WordPipe } from './word.pipe';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { MyPipePipe } from './my-pipe.pipe';
 
 
 const appRoutes: Routes = [
@@ -49,7 +52,8 @@ const appRoutes: Routes = [
     SpecialCoursesComponent,
     FilterPipe,
     WordPipe,
-    CourseDetailComponent
+    CourseDetailComponent,
+    MyPipePipe
   ],
   imports: [
     BrowserModule,
@@ -58,9 +62,11 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
 
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatChipsModule,
     MatDividerModule,
     MatExpansionModule,
     MatFormFieldModule,

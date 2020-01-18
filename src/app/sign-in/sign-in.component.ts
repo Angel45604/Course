@@ -1,8 +1,11 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import CoursesJson from '../../app/common/courses.json';
 import { Course } from '../models/course.js';
 import { User } from '../models/user.js';
+import { Observable } from 'rxjs';
+import { startWith } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-in',
@@ -19,8 +22,20 @@ export class SignInComponent implements OnInit, AfterViewInit {
   secondFormGroup: FormGroup;
   coursesJ: Array<Course> = [];
   dataset = ['MDB', 'Angular', 'Bootstrap', 'Framework', 'SPA', 'React', 'Vue'];
+  categoryTitle = [];
+  filteredOptions: Observable<string[]>;
+  selectedOptions = [];
+  myControl = new FormControl();
 
   user:User;
+
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  
 
   constructor(private _formBuilder: FormBuilder) {
     this.user = new User();
@@ -37,6 +52,17 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   register() {
     console.log("User:", this.user);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.categoryTitle.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  selectCategory(value) {
+    this.categoryTitle.splice(this.categoryTitle.indexOf(value), 1);
+    this.selectedOptions.push(value);
   }
 
   ngOnInit() {
@@ -57,17 +83,36 @@ export class SignInComponent implements OnInit, AfterViewInit {
   console.log(this.coursesJ);
 
   this.categories = this.coursesJ.reduce( (acc, obj) => {
-
+    !this.categoryTitle.includes(obj.category) ? this.categoryTitle.push(obj.category) : {};
     acc[obj.category] = acc[obj.category] || [];
     acc[obj.category].push(obj);
     return acc;
   }, {});
-
+  console.log("CAT", this.categoryTitle);
   console.log(this.categories);
+
+  this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+}
+
+reorder(arr) {
+  let categories = {};
+  for(let a of arr){
+    if (categories[a.category] != null){
+      categories[a.category].push(a)
+    }else{
+      categories[a.category] = [];
+      categories[a.category].push(a)
+    }
+  }
+  return categories;
 }
 
   ngAfterViewInit() {
-
+      //console.log("Perro", this.reorder(this.coursesJ));
   }
 
 
