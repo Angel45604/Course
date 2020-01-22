@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MyPipePipe implements PipeTransform {
   i = 0;
-  transform(items: any, pepe: Array<string>){
+  transform(items: any, pepe:string){
     let exit = {}
     for(let i in items) {
       if(pepe.includes(i)) {
@@ -14,10 +14,10 @@ export class MyPipePipe implements PipeTransform {
     }
 
     if (Object.entries(exit).length === 0 && exit.constructor === Object) {
-      console.log('NO EXIT')
+      //console.log('NO EXIT')
       return items;
     }
-    
+
     return exit;
   }
 }

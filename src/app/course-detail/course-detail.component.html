@@ -77,9 +77,9 @@
                 <p class="description">Este curso está pensado para acreditar tu examen de Saberes Previos de Programación Orientada a Objetos, </p>
                 <div class="course-meta">
                     <span class="timestamp">
-                        <i class="fa fa-clock-o">Hace 6 minutos</i>
+                        <i class="fa fa-clock-o">{{courseDate |date | timeAgo}}</i>
                         <span class="actions">
-                            <button mat-raised-button color="primary" mat-button>Registrate</button>
+                            <button mat-raised-button color="primary" mat-button routerLink="/sign-in-special">Registrate</button>
                         </span>
                     </span>
                 </div>

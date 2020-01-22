@@ -59,9 +59,11 @@
         </g>
       </svg>
     </a>
+    <h2 *ngIf="router.isActive('/sign-in', false)">Registrate</h2>
+    <h2 *ngIf="router.isActive('/sign-in-special', false)">De Cero a Objeto</h2>
     <nav class="navbar-navigation">
       <a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="">Home</a>
-      <a routerLinkActive="active" routerLink="sign-in">Sign-In</a>
+      <a routerLinkActive="active" routerLink="sign-in">Registrate</a>
       <a routerLinkActive="active" routerLink="special-courses">Cursos Especiales</a>
     </nav>
   </header>
@@ -78,7 +80,7 @@
     <nav class="nav">
       <a class="nav-item" routerLink="">Home</a>
       <a class="nav-item" routerLink="special-courses">Cursos Especiales</a>
-      <a class="nav-item" routerLink="sign-in">Sign In</a>
+      <a class="nav-item" routerLink="sign-in">Registrate</a>
     </nav>
 
     <a class="nav-item" routerLink="" class="navbar-brand">

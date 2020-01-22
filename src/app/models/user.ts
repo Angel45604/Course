@@ -2,7 +2,8 @@ import { Schedule } from './schedule';
 export class User {
     name: string;
     email: string;
-    id: string;
+    idNo: string;
     courses:Array<string>;
-    schedule: Array<Schedule>
+    special: boolean;
+    carreer: string;
 }

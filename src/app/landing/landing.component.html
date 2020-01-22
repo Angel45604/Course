@@ -3,16 +3,17 @@
         <app-header></app-header>
       <main class="wrapper">
         <div class="content">
-          <span class="pill">1 Nuevo Curso Especial</span>
-          <h1>CodwA</h1>
-          <p class="summary">No se que poner aqui, igual y una descripcion o una introduccion a esta cosa No se que poner aqui, igual y una descripcion o una introduccion a esta cosa No se que poner aqui, igual y una descripcion o una introduccion a esta cosa</p>
+          <a routerLink="special-courses"><span class="pill">1 Nuevo Curso Especial</span></a>
+          <h1>CodWA</h1>
+          <p class="summary">Aprende a programar desde cero, refuerza conocimientos o resuelve tus dudas con asesorías. CodWA es un curso/taller de programación creado para complementar y profundizar los conocimientos de programación de los alumnos de UPIITA, por los alumnos de UPIITA . </p>
           <a routerLink="sign-in"><button  class="signup">Empieza Ahora</button></a>
-          <p class="note"> {{width}} x {{height}}</p>
+          <!-- <p class="note"> {{width}} x {{height}}</p>
           <p class="note">{{innerwidth}} x {{innerheight}}</p>
           <div class="note">{{pixelRatio}}</div>
-          <div class="note">{{resolution}}</div>
+          <div class="note">{{resolution}}</div> -->
         </div>
         <div class="image">
+          <!-- <img src="../../assets/images/schedule.PNG" alt="Horaio"> -->
           <!-- <svg viewBox="0 0 424 492" xmlns="http://www.w3.org/2000/svg">
   <defs>
   <filter x="-25.5%" y="-311.8%" width="151.1%" height="723.6%" filterUnits="objectBoundingBox" id="a">
@@ -56,6 +57,10 @@
         </div>  
       </main>  
     </section>
+    <div class="courses-title">
+      <h1 >Cursos</h1>
+      
+    </div>
     <app-courses></app-courses>
   </section>
   <router-outlet></router-outlet>

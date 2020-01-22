@@ -5,7 +5,7 @@
             "subject": "Conceptos Básicos",
             "category": "CONCEPTOS_BASICOS",
             "content": [
-                "Qué es y cómo funciona la terminal",
+                "¿Qué es y cómo funciona la terminal?",
                 "Sistema de archivos",
                 "Administración y comunicación entre procesos",
                 "Usuarios, Grupos y Permisos",
@@ -25,7 +25,7 @@
             "subject": "Conceptos Básicos",
             "category": "CONCEPTOS_BASICOS",
             "content": [
-                "Cómo funciona una computadora?",
+                "¿Cómo funciona una computadora?",
                 "Bits/Bytes",
                 "Procesamiento general",
                 "Procesamiento de propósito específico",
@@ -40,7 +40,7 @@
             "subject": "Conceptos Básicos",
             "category": "CONCEPTOS_BASICOS",
             "content": [
-                "Por qué aprender a programar?",
+                "¿Por qué aprender a programar?",
                 "Definición de algoritmo",
                 "Lenguajes e intérpretes",
                 "Variables, tipos de datos y Funciones",
@@ -57,7 +57,7 @@
             "subject": "Conceptos Básicos",
             "category": "CONCEPTOS_BASICOS",
             "content": [
-                "Qué es y cómo funciona internet",
+                "¿Qué es y cómo funciona internet?",
                 "Introducción a redes, protocolos e internet",
                 "LAN, WAN y Topologías de Red",
                 "Intranet y Extranet",
@@ -75,9 +75,9 @@
             "subject": "Control de Versiones",
             "category": "CONTROL_DE_VERSIONES",
             "content": [
-                "Qué es git?",
-                "Por qué usar un control de versiones?",
-                "Qué es github?",
+                "¿Qué es git?",
+                "¿Por qué usar un control de versiones?",
+                "¿Qué es github?",
                 "Staging, repositorios y ciclo básico de trabajo",
                 "Branches , Merge y Checkout",
                 "Repositorios remotos",
@@ -105,7 +105,7 @@
             "subject": "Inteligencia Artificial",
             "category": "INTELIGENCIA_ARTIFICIAL",
             "content": [
-                "Qué es Machine Learning?",
+                "¿Qué es Machine Learning?",
                 "Modelos",
                 "Conceptos Generales y terminología",
                 "Algoritmos supervisados y No Supervisados",
@@ -180,8 +180,8 @@
         },
         {
             "title": "Algoritmos y Estructuras de Datos",
-            "subject": "Undefined",
-            "category": "Undefined",
+            "subject": "Otros",
+            "category": "Otros",
             "content": [
                 "Metodología para la construcción de algoritmos",
                 "User defined data types",
@@ -217,7 +217,7 @@
             "subject": "Bases de Datos",
             "category": "BASES_DE_DATOS",
             "content": [
-                "Qué son y para qué sirven",
+                "¿Qué son y para qué sirven?",
                 "SQL",
                 "RDBMS",
                 "Entidades y atributos",
@@ -271,10 +271,23 @@
             "subject": "Python",
             "category": "PYTHON",
             "content": [
-                ""
+                "Manejo de Archivos",
+                "Rangos",
+                "Listas",
+                "Tuplas",
+                "Diccionarios",
+                "Sets",
+                "Operaciones con Listas",
+                "Dictionary/List Comprehension",
+                "Manejo de Errores",
+                "Programación Orientada a Objetos en Python",
+                "Lambdas",
+                "Decoradores",
+                "Paquetes y módulos"
+
 
             ],
-            "isReady": false
+            "isReady": true
         },
         {
             "title": "ASP .NET ",
@@ -298,7 +311,7 @@
         {
             "title": "C y C++",
             "subject": "C",
-            "category": "Undefined",
+            "category": "C",
             "content": [
                 "Control de flujos",
                 "Directivas pre-compilador",
@@ -356,7 +369,7 @@
             "subject": "Desarrollo Móvil",
             "category": "DESARROLLO_MOVIL",
             "content": [
-                "Programacion Funcional",
+                "Programación Funcional",
                 "Programación orientada a Objetos",
                 "Strings",
                 "Tipos de datos y conversiones",
@@ -479,10 +492,21 @@
             "subject": "Desarrollo Web",
             "category": "DESARROLLO_WEB",
             "content": [
-                ""
+                "HTML",
+                "CSS",
+                "DOM",
+                "Preprocesadores",
+                "Responsive Design",
+                "Unidades de Medida",
+                "Texto y propiedades",
+                "Displays",
+                "Layouts",
+                "Formularios",
+                "IFrames"
+
 
             ],
-            "isReady": false
+            "isReady": true
         },
         {
             "title": "Backend",

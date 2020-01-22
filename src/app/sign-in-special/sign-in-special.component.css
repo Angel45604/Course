@@ -1,0 +1,55 @@
+.mat-card {
+    background: #3B3D62;
+  }
+
+.mat-stepper-vertical {
+    background-color: #3B3D62;
+}
+
+.mat-button {
+    color: #ffffff;
+}
+  
+.mat-vertical-content-container {
+    
+}
+
+.example-chip-list {
+  width: 100%;
+}
+
+.mat-standard-chip.mat-chip-with-trailing-icon {
+  background-color: #9c4986;
+}
+
+.mat-option {
+  background-color: #3B3D62;
+}
+
+.mat-option:hover {
+  background-color: #43466f;
+}
+
+.mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover) {
+  background-color: #3B3D62;
+}
+
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
+  background-color: #43466f;
+} 
+
+input {
+  color: #ffffff;
+}
+
+snack-bar-container {
+    background-color: #9c4986;
+}
+
+.mat-snack-bar-container {
+    background-color: #9c4986;
+}
+
+.mat-snack-bar-center {
+    background-color: #9c4986;
+}

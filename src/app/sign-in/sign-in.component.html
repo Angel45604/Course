@@ -7,11 +7,20 @@
         </mat-form-field>
         <br>
         <mat-form-field>
-          <input  matInput placeholder="No. Boleta" formControlName="firstCtrl" [(ngModel)]="user.id" required>
+          <input  matInput placeholder="No. Boleta" formControlName="firstCtrl" [(ngModel)]="user.idNo" required>
         </mat-form-field>
         <br>
         <mat-form-field>
           <input type=""  matInput placeholder="Correo Electrónico" formControlName="firstCtrl" [(ngModel)]="user.email" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Carrera</mat-label>
+          <mat-select [(value)]="user.carreer">
+            <mat-option *ngFor="let carrera of carreras" [value]="carrera.value">
+              {{carrera.viewValue}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <div>
           <button  mat-flat-button color="primary" matStepperNext>Siguiente</button>
@@ -19,14 +28,14 @@
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
-        <ng-template matStepLabel>Selecciona tus cursos</ng-template>
+        <ng-template matStepLabel>¿Qué cursos te interesan?</ng-template>
         <div class="searcher">
           <div>
             <!-- <mat-form-field class="example-full-width">
               <input type="search" matInput [(ngModel)]="searchText" placeholder="Categoría">
               <mat-icon matSuffix color="accent">search</mat-icon>
             </mat-form-field> -->
-            <mat-form-field class="example-chip-list">
+            <!-- <mat-form-field class="example-chip-list">
               <mat-chip-list #chipList aria-label="Fruit selection">
                 <mat-chip
                   *ngFor="let fruit of fruits"
@@ -54,16 +63,16 @@
             <mat-form-field class="example-full-width">
               <input type="search" matInput [(ngModel)]="searchText" placeholder="Curso">
               <mat-icon matSuffix color="accent">search</mat-icon>
-            </mat-form-field>
+            </mat-form-field> -->
             <mat-list>
               <ng-container *ngFor="let cat of categories | myPipe: selectedOptions | keyvalue">
-                <h2 mat-subheader>{{cat.key | word | titlecase}}</h2>
+                <h2 mat-subheader *ngIf="cat.value[0].isReady">{{cat.key | word | titlecase}}</h2>
                 <ng-container *ngFor="let course of cat.value | filter: searchText">
                   <mat-list-item *ngIf="course.isReady">
-                    <mat-checkbox (change)="clicked(course, $event.checked)" value="{{course.title}}">{{course.title}}</mat-checkbox>
+                    <mat-checkbox (change)="clicked(course, $event.checked)"  value="{{course.title}}">{{course.title}}</mat-checkbox>
                      <!-- <p mat-line> {{folder.updated | date}} </p> estovacomentado  -->
                   </mat-list-item>
-                </ng-container>
+              </ng-container>
                 <br>
                 <br>
               </ng-container>
@@ -113,6 +122,6 @@
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Listo</ng-template>
-      <button mat-raised-button color="accent" (click)="register()">Registrate</button>
+      <button mat-raised-button color="primary" (click)="register()">Registrate</button>
     </mat-step>
   </mat-vertical-stepper>

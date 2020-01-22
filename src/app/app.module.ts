@@ -24,7 +24,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input'; 
 import {MatListModule} from '@angular/material/list'; 
 import {MatSelectModule} from '@angular/material/select'; 
-import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSnackBarModule} from '@angular/material/snack-bar';  
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree'; 
@@ -35,25 +36,41 @@ import { FilterPipe } from './filter.pipe';
 import { WordPipe } from './word.pipe';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { MyPipePipe } from './my-pipe.pipe';
+import {TimeAgoPipe} from 'time-ago-pipe';
+import { CalendarComponent } from './calendar/calendar.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+import { SignInSpecialComponent } from './sign-in-special/sign-in-special.component';
+
 
 
 const appRoutes: Routes = [
   {path: '', component: LandingComponent},
   {path: 'sign-in', component: SignInComponent},
-  {path: 'special-courses', component: SpecialCoursesComponent}
+  {path: 'sign-in-special', component: SignInSpecialComponent},
+  {path: 'special-courses', component: SpecialCoursesComponent},
+  {path: 'calendar', component:CalendarComponent}
 ]
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     SignInComponent,
+    SignInSpecialComponent,
     HeaderComponent,
     CoursesComponent,
     SpecialCoursesComponent,
     FilterPipe,
     WordPipe,
     CourseDetailComponent,
-    MyPipePipe
+    MyPipePipe,
+    CalendarComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
@@ -75,11 +92,17 @@ const appRoutes: Routes = [
     MatListModule,
     MatSelectModule,
     MatSidenavModule,
+    MatSnackBarModule,
     MatStepperModule,
     MatToolbarModule,
     MatTreeModule,
-
-    RouterModule.forRoot(appRoutes, {enableTracing: true})
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

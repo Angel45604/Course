@@ -7,7 +7,10 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class CourseDetailComponent implements OnInit, AfterViewInit{
 
-  constructor() { }
+  courseDate: Date;
+  constructor() {
+    this.courseDate = new Date("2020-01-19T23:48")
+   }
 
   ngOnInit() {
     

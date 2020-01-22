@@ -1,0 +1,21 @@
+<mat-vertical-stepper linear="false" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Ingresa tus datos</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Apellidos, Nombre" formControlName="firstCtrl" [(ngModel)]="user.name" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input  matInput placeholder="No. Boleta" formControlName="firstCtrl" [(ngModel)]="user.idNo" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input type=""  matInput placeholder="Correo Electrónico" formControlName="firstCtrl" [(ngModel)]="user.email" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" (click)="register()">Registrate</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-vertical-stepper>

@@ -27,7 +27,7 @@ export class CoursesComponent implements OnInit, AfterViewInit {
     "BASES_DE_DATOS":"#0288D1,#0277BD,#01579B",
     "INTELIGENCIA_ARTIFICIAL":"#7B1FA2,#6A1B9A,#4A148C",
     "CLOUD_COMPUTING_SERVICES":"#455A64,#37474F,#263238",
-    "Undefined": "#212124,#3B3D62,#202135"
+    "Otros": "#212124,#3B3D62,#202135"
   }
 
   constructor() { }
@@ -44,7 +44,7 @@ export class CoursesComponent implements OnInit, AfterViewInit {
           ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]].split(',')[1]} 10px,
           ${this.colors[li[j].className.split('-')[li[j].className.split('-').length-1]].split(',')[2]} 10px,
           transparent 11px)`;
-          console.log(li[j].className);
+          //console.log(li[j].className);
       }
     }
   }
@@ -68,9 +68,9 @@ export class CoursesComponent implements OnInit, AfterViewInit {
       }
     }
 
-    console.log(this.coursesJ1);
-    console.log(this.coursesJ2);
-    console.log(this.coursesJ3);
+    //console.log(this.coursesJ1);
+    //console.log(this.coursesJ2);
+    //console.log(this.coursesJ3);
 
   }
 

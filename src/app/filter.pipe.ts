@@ -27,8 +27,8 @@ export class FilterPipe implements PipeTransform {
         tmp.push(k);
       }
     }
-    console.log('Items', items)
-    console.log('tmp',tmp);
+    //console.log('Items', items)
+    //console.log('tmp',tmp);
 
     return tmp;
   }

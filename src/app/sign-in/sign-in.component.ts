@@ -8,6 +8,10 @@ import { startWith } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
 import { MatChipInputEvent, MatChipEvent } from '@angular/material/chips';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -41,17 +45,30 @@ export class SignInComponent implements OnInit, AfterViewInit {
   fruits: string[] = [];
   allFruits: string[] = [];
 
+  usersCollection: AngularFirestoreCollection<User>;
+
+  carreras;
+  
+
   @ViewChild('fruitInput', {static: false}) fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
   
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder, private AfDB: AngularFirestore, private _snackBar: MatSnackBar, public router: Router) {
     this.user = new User();
     this.user.courses = [];
     this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
       startWith(null),
       map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice()));
+
+    this.usersCollection = this.AfDB.collection<User>('users');
+
+    this.carreras = [
+      {value: 'Bionica', viewValue: 'Bionica'},
+      {value: 'Telematica', viewValue: 'Telematica'},
+      {value: 'Mecatronica', viewValue: 'Mecatronica'}
+    ];
   }
 
   add(event: MatChipInputEvent): void {
@@ -88,7 +105,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     this.fruits.push(event.option.value);
     this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue(null);
-    console.log(this.fruits);
+    //console.log(this.fruits);
     this.selectedOptions += `|${event.option.value}|`
 
   }
@@ -100,7 +117,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   }
 
   clicked(course, isChecked) {
-    console.log('course', this.user);
+    //console.log('course', this.user);
     if(isChecked) {
       this.user.courses.push(course.title);
     } else {
@@ -110,7 +127,14 @@ export class SignInComponent implements OnInit, AfterViewInit {
   }
 
   register() {
-    console.log("User:", this.user);
+    //console.log("User:", this.user);
+    this.usersCollection.add({courses: this.user.courses, email: this.user.email, idNo: this.user.idNo, name: this.user.name, special: false, carreer: this.user.carreer});
+    this._snackBar.open('Registro Exitoso', 'x', {
+      duration: 2000,
+    }).afterDismissed().subscribe(() => {
+      //console.log('The snack-bar was dismissed');
+      this.router.navigate(['/'])
+    });
   }
 
   selectCategory(value) {
@@ -132,7 +156,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
       this.coursesJ.push(CoursesJson.courses[i]);
 
   }
-  console.log(this.coursesJ);
+  //console.log(this.coursesJ);
 
   this.categories = this.coursesJ.reduce( (acc, obj) => {
     !this.allFruits.includes(obj.category) ? this.allFruits.push(obj.category) : {};
@@ -140,8 +164,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
     acc[obj.category].push(obj);
     return acc;
   }, {});
-  console.log("CAT", this.allFruits);
-  console.log(this.categories);
+  //console.log("CAT", this.allFruits);
+  //console.log(this.categories);
 
   this.filteredOptions = this.myControl.valueChanges
       .pipe(
