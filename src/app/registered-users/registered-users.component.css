@@ -1,0 +1,11 @@
+    .container {
+        margin: 20px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    table.mat-table {
+        background-color:#3B3D62;
+    }

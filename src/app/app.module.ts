@@ -25,8 +25,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list'; 
 import {MatSelectModule} from '@angular/material/select'; 
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatSnackBarModule} from '@angular/material/snack-bar';  
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSortModule} from '@angular/material/sort';   
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTableModule} from '@angular/material/table'; 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree'; 
 
@@ -38,6 +40,7 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { MyPipePipe } from './my-pipe.pipe';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { CalendarComponent } from './calendar/calendar.component';
+import { RegisteredUsersComponent } from './registered-users/registered-users.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
@@ -54,7 +57,7 @@ const appRoutes: Routes = [
   {path: 'sign-in', component: SignInComponent},
   {path: 'sign-in-special', component: SignInSpecialComponent},
   {path: 'special-courses', component: SpecialCoursesComponent},
-  {path: 'calendar', component:CalendarComponent}
+  {path: 'registered-users', component: RegisteredUsersComponent}
 ]
 @NgModule({
   declarations: [
@@ -70,6 +73,7 @@ const appRoutes: Routes = [
     CourseDetailComponent,
     MyPipePipe,
     CalendarComponent,
+    RegisteredUsersComponent,
     TimeAgoPipe
   ],
   imports: [
@@ -93,7 +97,9 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatSidenavModule,
     MatSnackBarModule,
+    MatSortModule,
     MatStepperModule,
+    MatTableModule,
     MatToolbarModule,
     MatTreeModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
