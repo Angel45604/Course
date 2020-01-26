@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-course-detail',
@@ -7,14 +8,23 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class CourseDetailComponent implements OnInit, AfterViewInit{
 
+  message: string;
+
+  expirationDate = new Date('2019-01-16T22:00')
+  actualDate = new Date();
   courseDate: Date;
+
   constructor() {
     this.courseDate = new Date("2020-01-19T23:48")
    }
 
   ngOnInit() {
-    
-  }
+    console.log(this.actualDate.getHours());
+    console.log(this.expirationDate.getHours());
+    console.log (Math.floor((this.expirationDate.getHours() - this.actualDate.getHours())));
+    this.message = (22 - this.actualDate.getHours()).toString();
+    }
+
 
   ngAfterViewInit() {
     let post = document.getElementsByClassName('post-module')

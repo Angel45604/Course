@@ -12,11 +12,11 @@ export class UserService {
   constructor(private afs: AngularFirestore) { 
   }
 
-  public getUser(idNo, name) {
+  public async getUser(idNo, name) {
     this.usersCollection = this.afs.collection('users', ref => {
       return ref.where('idNo', '==', idNo).where('name', '==', name);
     })
-    this.users = this.usersCollection.snapshotChanges();
+    this.users = this.usersCollection.valueChanges();
     return this.users;
   }
 }

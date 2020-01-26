@@ -1,0 +1,68 @@
+<div class="container">
+  <h2 *ngIf="userParams.special">Curso especial: De Cero a Objeto</h2>
+    <p>{{userParams.name}}</p>
+    <p>{{userParams.email}}</p>
+    <p>{{userParams.idNo}}</p>
+    
+    <br>
+    <h1>Elige tu horario</h1>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="monday">
+          <th mat-header-cell *matHeaderCellDef> Lunes </th>
+          <td mat-cell *matCellDef="let element"> <mat-checkbox (change)="clicked('monday: '+ element.monday, $event.checked)" value="{{element.monday}}" *ngIf="element.monday">{{element.monday}}&nbsp;&nbsp;&nbsp;&nbsp;</mat-checkbox> </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="tuesday">
+          <th mat-header-cell *matHeaderCellDef> Martes </th>
+          <td mat-cell *matCellDef="let element"> <mat-checkbox (change)="clicked('tuesday: '+ element.tuesday, $event.checked)" value="{{element.tuesday}}" *ngIf="element.tuesday">{{element.tuesday}}&nbsp;&nbsp;&nbsp;&nbsp;</mat-checkbox> </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="wednesday">
+          <th mat-header-cell *matHeaderCellDef>Miercoles</th>
+          <td mat-cell *matCellDef="let element"> <mat-checkbox (change)="clicked('wednesday: '+ element.wednesday, $event.checked)" value="{{element.wednesday}}" *ngIf="element.wednesday">{{element.wednesday}}&nbsp;&nbsp;&nbsp;&nbsp; </mat-checkbox> </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="thursday">
+            <th mat-header-cell *matHeaderCellDef> Jueves </th>
+            <td mat-cell *matCellDef="let element"> <mat-checkbox (change)="clicked('thursday: '+ element.thursday, $event.checked)" value="{{element.thursday}}" *ngIf="element.thursday">{{element.thursday}}&nbsp;&nbsp;&nbsp;&nbsp;</mat-checkbox> </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="friday">
+            <th mat-header-cell *matHeaderCellDef> Viernes </th>
+            <td mat-cell *matCellDef="let element"> <mat-checkbox (change)="clicked('friday: '+ element.friday, $event.checked)" value="{{element.friday}}" *ngIf="element.friday">&nbsp;&nbsp;&nbsp;&nbsp;{{element.friday}}</mat-checkbox> </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <br>
+      <mat-form-field>
+        <mat-label>Metodo de contacto</mat-label>
+        <mat-select  [(value)]="contactMethod">
+          <mat-option *ngFor="let contact of contactMethods" [value]="contact">
+            {{contact}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <br>
+      <ng-container *ngIf="contactMethod=='Otro'">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Ingresa un método de contacto" [(ngModel)]="newContactMethod">
+        </mat-form-field>
+      </ng-container>
+      <br>
+      <button mat-raised-button color="primary" (click)="send()">Aceptar</button>
+      <br>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+</div>
+  
+  

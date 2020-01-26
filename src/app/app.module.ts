@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import {MatChipsModule} from '@angular/material/chips'; 
+import {MatDialogModule} from '@angular/material/dialog'; 
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatExpansionModule} from '@angular/material/expansion'; 
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -50,6 +51,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { SignInSpecialComponent } from './sign-in-special/sign-in-special.component';
 
+import { JwtModule } from '@auth0/angular-jwt';
+import { PickScheduleComponent } from './pick-schedule/pick-schedule.component'
+import { UserService } from './user.service';
+import { OverviewDialogComponent } from './overview-dialog/overview-dialog.component';
 
 
 const appRoutes: Routes = [
@@ -57,7 +62,8 @@ const appRoutes: Routes = [
   {path: 'sign-in', component: SignInComponent},
   {path: 'sign-in-special', component: SignInSpecialComponent},
   {path: 'special-courses', component: SpecialCoursesComponent},
-  {path: 'registered-users', component: RegisteredUsersComponent}
+  {path: 'registered-users', component: RegisteredUsersComponent},
+  {path: 'pick-schedule', component: PickScheduleComponent}
 ]
 @NgModule({
   declarations: [
@@ -74,7 +80,9 @@ const appRoutes: Routes = [
     MyPipePipe,
     CalendarComponent,
     RegisteredUsersComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    PickScheduleComponent,
+    OverviewDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +96,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
     MatFormFieldModule,
@@ -103,6 +112,8 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatTreeModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
+
+    JwtModule,
     
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
@@ -110,7 +121,7 @@ const appRoutes: Routes = [
     AngularFireStorageModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

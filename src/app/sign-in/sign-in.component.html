@@ -2,15 +2,15 @@
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Ingresa tus datos</ng-template>
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
           <input matInput placeholder="Apellidos, Nombre" formControlName="firstCtrl" [(ngModel)]="user.name" required>
         </mat-form-field>
         <br>
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
           <input  matInput placeholder="No. Boleta" formControlName="firstCtrl" [(ngModel)]="user.idNo" required>
         </mat-form-field>
         <br>
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
           <input type=""  matInput placeholder="Correo Electrónico" formControlName="firstCtrl" [(ngModel)]="user.email" required>
         </mat-form-field>
         <br>

@@ -2,6 +2,8 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { preserveWhitespacesDefault } from '@angular/compiler';
 
+import { JwtHelperService } from "@auth0/angular-jwt";
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -19,6 +21,8 @@ export class LandingComponent implements OnInit, AfterViewInit {
   resolution;
   
   
+  helper = new JwtHelperService();
+  
 
   setColor() {
 
@@ -35,7 +39,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-  
+    console.log(atob('eyJuYW1lIjogIkFZ2VsIiwgIkFnZSI6IDE5LCAiaXNSZWFkeSI6IHRydWV9'));
+
+
     this.width = screen.width;
     this.innerwidth = window.innerWidth;
     this.height = screen.height;
