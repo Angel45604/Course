@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import UsersJson from '../../app/common/users.json';
+//import UsersJson from '../../app/common/users.json';
 import { User } from '../models/user.js';
 import { UserService } from '../user.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -91,9 +91,9 @@ export class PickScheduleComponent implements OnInit {
   }
 
   ngOnInit() {
-    for(let user of UsersJson.users) {
+    //for(let user of UsersJson.users) {
       //console.log(user.name, btoa(JSON.stringify(user)));
-    }
+    //}
     //console.log('auauauauau' );
     //JSON.parse(atob('eyJlbWFpbCI6InVyaWVsc2ltc29uQGdtYWlsLmNvbSIsImlkTm8iOiIyMDE5NjQwNDAyIiwibmFtZSI6IlVyaWVsIFBhbG9taW5vIiwic3BlY2lhbCI6dHJ1ZX0='));
     if(!this.userParams) {

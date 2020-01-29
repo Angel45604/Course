@@ -26,6 +26,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list'; 
 import {MatSelectModule} from '@angular/material/select'; 
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSortModule} from '@angular/material/sort';   
 import {MatStepperModule} from '@angular/material/stepper';
@@ -55,6 +56,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { PickScheduleComponent } from './pick-schedule/pick-schedule.component'
 import { UserService } from './user.service';
 import { OverviewDialogComponent } from './overview-dialog/overview-dialog.component';
+import { SchedulesComponent } from './schedules/schedules.component';
 
 
 const appRoutes: Routes = [
@@ -63,7 +65,8 @@ const appRoutes: Routes = [
   {path: 'sign-in-special', component: SignInSpecialComponent},
   {path: 'special-courses', component: SpecialCoursesComponent},
   {path: 'registered-users', component: RegisteredUsersComponent},
-  {path: 'pick-schedule', component: PickScheduleComponent}
+  {path: 'pick-schedule', component: PickScheduleComponent},
+  {path: 'schedules', component: SchedulesComponent}
 ]
 @NgModule({
   declarations: [
@@ -82,7 +85,8 @@ const appRoutes: Routes = [
     RegisteredUsersComponent,
     TimeAgoPipe,
     PickScheduleComponent,
-    OverviewDialogComponent
+    OverviewDialogComponent,
+    SchedulesComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +109,7 @@ const appRoutes: Routes = [
     MatListModule,
     MatSelectModule,
     MatSidenavModule,
+    MatSlideToggleModule,
     MatSnackBarModule,
     MatSortModule,
     MatStepperModule,

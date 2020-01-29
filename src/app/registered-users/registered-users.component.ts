@@ -11,9 +11,10 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 
 export class RegisteredUsersComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'email', 'idNo', 'createdAt'];
+  displayedColumns: string[] = ['name', 'email', 'idNo', 'createdAt', 'schedule'];
 
   tableDataSource;
+  checked = false;
 
   private itemsCollection: AngularFirestoreCollection<any>;
   items: Observable<any>;
@@ -21,17 +22,27 @@ export class RegisteredUsersComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   
   constructor(private afs: AngularFirestore) { 
-    this.itemsCollection = afs.collection<any>('users');
+    this.retrieveData();
+  }
+
+  retrieveData() {
+    this.itemsCollection = this.afs.collection('users', ref => {
+      return ref.where('special', '==', this.checked);
+    });
     //this.itemsCollection = afs.collection('users', ref => ref.where('special', '==', true));
     this.items = this.itemsCollection.valueChanges();
+    this.items.subscribe(i => {
+      this.tableDataSource= new MatTableDataSource(i);
+      this.tableDataSource.sort = this.sort;
+    })
+  }
+
+  changed() {
+    this.retrieveData();
   }
 
   ngOnInit() {
-      this.items.subscribe(i => {
-        this.tableDataSource= new MatTableDataSource(i);
-        this.tableDataSource.sort = this.sort;
-      })
-      
+    this.retrieveData();
   }
 
 }

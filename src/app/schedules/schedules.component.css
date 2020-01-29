@@ -1,0 +1,74 @@
+table {
+    width: 100%;
+  }
+
+  table.mat-table {
+    background-color:#3B3D62;
+}
+
+.mat-option {
+  background-color: #3B3D62;
+}
+
+.mat-option:hover {
+  background-color: #43466f;
+}
+
+.mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover) {
+  background-color: #3B3D62;
+}
+
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
+  background-color: #43466f;
+} 
+
+input {
+  color: #ffffff;
+}
+
+.container {
+    margin: 20px;
+}
+
+p {
+  color: #ffffff;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+h1 {
+  color: #ffffff;
+  font-weight: 400;
+    font-size: 42px;
+    padding: 10px 0;
+    letter-spacing: 0.35px;
+    margin: 10px 0 20px 0;
+}
+
+li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.mat-slide-toggle {
+  color: #ffffff;
+}
+
+@media only screen and (max-device-width:763px) {
+  .example-full-width {
+    width: 100%;
+  }
+}
+@media only screen and (min-width:360px) and (max-width:900px){
+  .example-full-width {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-height:764px) and (max-height: 1080px) and (orientation:portrait) {
+  .example-full-width {
+    width: 100%;
+  }
+}

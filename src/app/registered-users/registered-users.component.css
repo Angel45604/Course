@@ -9,3 +9,7 @@
     table.mat-table {
         background-color:#3B3D62;
     }
+
+    .mat-slide-toggle {
+        color: #ffffff;
+      }
