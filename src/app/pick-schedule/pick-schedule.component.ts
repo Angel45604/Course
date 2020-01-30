@@ -114,17 +114,17 @@ export class PickScheduleComponent implements OnInit {
       }
     })
 
-    // this.user = this.userService.getUser(this.userParams.idNo, this.userParams.name).subscribe(u => {
-    //   if(u.length > 0) {
-    //     console.log('SI');
-    //     console.log(u)
-    //     this.newUser = this.afs.doc('users/' + u[0].payload.doc.id)
+    this.user = this.userService.getUser(this.userParams.idNo, this.userParams.name).subscribe(u => {
+      if(u.length > 0) {
+        console.log('SI');
+        console.log(u)
+        this.newUser = this.afs.doc('users/' + u[0].payload.doc.id)
         
-    //   }else {
-    //     console.log('NO');
-    //     this.router.navigate(['/'])
-    //   }
-    // })
+      }else {
+        console.log('NO');
+        this.router.navigate(['/'])
+      }
+    })
     //btoa()
     //atob()
     
