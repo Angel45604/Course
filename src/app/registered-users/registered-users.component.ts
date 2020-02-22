@@ -15,6 +15,7 @@ export class RegisteredUsersComponent implements OnInit {
 
   tableDataSource;
   checked = false;
+  searchText = ''
 
   private itemsCollection: AngularFirestoreCollection<any>;
   items: Observable<any>;
@@ -39,6 +40,10 @@ export class RegisteredUsersComponent implements OnInit {
 
   changed() {
     this.retrieveData();
+  }
+
+  applyFilter(filterValue: string) {
+    this.tableDataSource.filter = filterValue.trim().toLowerCase();
   }
 
   ngOnInit() {

@@ -1,5 +1,9 @@
 <div class="container">
-    <mat-slide-toggle [(ngModel)]="checked" (change)="changed()">DCO</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="checked" (change)="changed()">DCO</mat-slide-toggle><br>
+    <!-- <mat-form-field class="example-full-width">
+      <input type="search" matInput (keyup)="applyFilter($event.target.value)" [(ngModel)]="searchText" placeholder="Filtrar">
+      <mat-icon matSuffix color="accent">search</mat-icon>
+    </mat-form-field>  -->
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->

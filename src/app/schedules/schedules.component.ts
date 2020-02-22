@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Calendar } from '../models/calendar';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-schedules',
@@ -19,7 +20,8 @@ export class SchedulesComponent implements OnInit {
 
   ];
 
-  dataSource: Calendar[] = this.ELEMENT_DATA;
+  dataSource: Calendar[];
+
   displayedColumns: string[] = ['hour', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 
   userRef: AngularFirestoreCollection<any>;
@@ -39,10 +41,15 @@ export class SchedulesComponent implements OnInit {
         element[day].push(user.name);
       }
     });
+    
   }
 
   changed() {
     this.retrieveData();
+  }
+
+  applyFilter(filterValue: string) {
+    //this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   retrieveData() {
@@ -59,7 +66,7 @@ export class SchedulesComponent implements OnInit {
         {hour: '14:30-16:00', monday: [], tuesday: [], wednesday: [], thursday: [], friday: []},
         {hour: '16:00-17:30', monday: [], tuesday: [], wednesday: [], thursday: [], friday: []}
       ];
-      this.dataSource = a;
+      this.dataSource = (a);
       for(let user of u) {
         if(user['schedule']){
           console.log('USER', user['schedule'])

@@ -9,6 +9,7 @@ import { Subscription, Observable } from 'rxjs';
 export class CourseDetailComponent implements OnInit, AfterViewInit{
 
   message: string;
+  disabled = true;
 
   expirationDate = new Date('2019-01-16T22:00')
   actualDate = new Date();

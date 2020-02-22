@@ -1,4 +1,6 @@
-
+a {
+  cursor: pointer;
+}
   
   .container {
     font-family : 'Lato', sans-serif;

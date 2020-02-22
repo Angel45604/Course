@@ -62,7 +62,7 @@
 
 <div class="container">
     <div class="course-module">
-        <mat-card>
+        <mat-card [ngClass]="{'disabled': disabled==true }">
             <div class="thumbnail">
                 <div class="date">
                     <div class="day">27</div>
@@ -82,7 +82,7 @@
                             <button mat-raised-button color="primary" mat-button routerLink="/sign-in-special">Registrate</button>
                         </span>
                         <mat-chip-list class="warns">
-                            <mat-chip color="accent">Cierra en {{message}} horas</mat-chip>
+                            <mat-chip color="accent">Este curso ha cerrado</mat-chip>
                         </mat-chip-list>
                     </span>
                 </div>

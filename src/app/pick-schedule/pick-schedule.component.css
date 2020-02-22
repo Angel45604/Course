@@ -1,3 +1,40 @@
+mat-bottom-sheet-container {
+  background: #3B3D62;
+  background-color: #3B3D62;
+
+
+}
+.mat-bottom-sheet-container {
+  background-color: #3B3D62;
+
+  background: #3B3D62;
+
+}
+
+.mat-bottom-sheet-container-medium {
+  background-color: #3B3D62;
+  background: #3B3D62;
+
+}
+
+bottomm-sheet-overview-example-sheet {
+  background-color: #3B3D62;
+  background: #3B3D62;
+
+}
+.mat-bottom-sheet-container {
+  box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+  background: #3B3D62;
+  background-color: #3B3D62;
+  color: #fff;
+}
+
+.mat-bottom-sheet-container-large, .mat-bottom-sheet-container-medium, .mat-bottom-sheet-container-xlarge {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background: #3B3D62;
+  background-color: #3B3D62;
+}
 table {
     width: 100%;
   }

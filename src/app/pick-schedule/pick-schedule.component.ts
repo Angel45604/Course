@@ -7,6 +7,8 @@ import { UserService } from '../user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { OverviewDialogComponent } from '../overview-dialog/overview-dialog.component.js';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+
 
 @Component({
   selector: 'app-pick-schedule',
@@ -41,7 +43,7 @@ export class PickScheduleComponent implements OnInit {
   displayedColumns: string[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
   dataSource = this.ELEMENT_DATA;
 
-  constructor(public dialog: MatDialog, public _snackBar: MatSnackBar, private route: ActivatedRoute, private afs: AngularFirestore, public router: Router, private userService: UserService) { 
+  constructor(private _bottomSheet: MatBottomSheet, public dialog: MatDialog, public _snackBar: MatSnackBar, private route: ActivatedRoute, private afs: AngularFirestore, public router: Router, private userService: UserService) { 
      this.route.queryParams.subscribe(params => {
        this.userParams =  JSON.parse(atob(decodeURIComponent(params['usr'])));
        console.log('aiaiaiaiai',this.userParams);
@@ -81,13 +83,14 @@ export class PickScheduleComponent implements OnInit {
       } else {
         this.newUser.update({schedule: this.hours, contact: this.contactMethod});
       }
-      this._snackBar.open('Horario Registrado, nos pondremos en contacto contigo. ¡Nos vemos el lunes!', 'x', {
-        duration: 3500,
-      }).afterDismissed().subscribe(() => {
-        //console.log('The snack-bar was dismissed');
+      this._bottomSheet.open(BottomSheetOverviewExampleSheet).afterDismissed().subscribe(() => {
         this.router.navigate(['/'])
       });
     }
+  }
+
+  openBottomSheet(): void {
+    this._bottomSheet.open(BottomSheetOverviewExampleSheet);
   }
 
   ngOnInit() {
@@ -101,7 +104,7 @@ export class PickScheduleComponent implements OnInit {
     }
 
     this.n = this.afs.collection('users', ref => {
-      return ref.where('special', '==', true);
+      return ref.where('special', '==', false);
     });
 
     this.n.valueChanges().subscribe(u => {
@@ -114,12 +117,14 @@ export class PickScheduleComponent implements OnInit {
       }
     })
 
+    
+
     this.user = this.userService.getUser(this.userParams.idNo, this.userParams.name).subscribe(u => {
       if(u.length > 0) {
         console.log('SI');
         console.log(u)
         this.newUser = this.afs.doc('users/' + u[0].payload.doc.id)
-        
+        this.newUser.update({mailOpened: true});
       }else {
         console.log('NO');
         this.router.navigate(['/'])
@@ -131,4 +136,19 @@ export class PickScheduleComponent implements OnInit {
   }
 
 
+}
+
+@Component({
+  selector: 'bottom-sheet-overview-example-sheet',
+  template: `<h3>Horario registrado, nos vemos en clase!</h3>
+              <a href="https://chat.whatsapp.com/LG9vZwC2b58ITdibFRexxm">Unete al grupo de Whatsapp</a>`,
+  styleUrls: ['./bottom-sheet-overview-example-sheet.css']
+})
+export class BottomSheetOverviewExampleSheet {
+  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>) {}
+
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
 }

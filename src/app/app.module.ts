@@ -13,6 +13,7 @@ import {SignInComponent} from './sign-in/sign-in.component';
 
 //material
 import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatCardModule} from '@angular/material/card'; 
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
@@ -33,6 +34,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatTableModule} from '@angular/material/table'; 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree'; 
+
+import { BottomSheetOverviewExampleSheet } from './pick-schedule/pick-schedule.component';
 
 import { CoursesComponent } from './courses/courses.component';
 import { SpecialCoursesComponent } from './special-courses/special-courses.component';
@@ -57,6 +60,7 @@ import { PickScheduleComponent } from './pick-schedule/pick-schedule.component'
 import { UserService } from './user.service';
 import { OverviewDialogComponent } from './overview-dialog/overview-dialog.component';
 import { SchedulesComponent } from './schedules/schedules.component';
+import { UserLinksComponent } from './user-links/user-links.component';
 
 
 const appRoutes: Routes = [
@@ -66,7 +70,8 @@ const appRoutes: Routes = [
   {path: 'special-courses', component: SpecialCoursesComponent},
   {path: 'registered-users', component: RegisteredUsersComponent},
   {path: 'pick-schedule', component: PickScheduleComponent},
-  {path: 'schedules', component: SchedulesComponent}
+  {path: 'schedules', component: SchedulesComponent},
+  {path: 'user-links', component: UserLinksComponent}
 ]
 @NgModule({
   declarations: [
@@ -86,7 +91,9 @@ const appRoutes: Routes = [
     TimeAgoPipe,
     PickScheduleComponent,
     OverviewDialogComponent,
-    SchedulesComponent
+    SchedulesComponent,
+    BottomSheetOverviewExampleSheet,
+    UserLinksComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +103,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
 
     MatAutocompleteModule,
+    MatBottomSheetModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
@@ -127,6 +135,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule
   ],
   providers: [UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [BottomSheetOverviewExampleSheet]
 })
 export class AppModule { }
