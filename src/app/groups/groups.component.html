@@ -1,0 +1,128 @@
+<div class="container">
+    <br>
+    <h1>Grupos</h1>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+                <ng-container matColumnDef="hour" sticky>
+                    <mat-header-cell class="event-hour" *matHeaderCellDef></mat-header-cell>
+                    <mat-cell class="event-hour" *matCellDef="let element">
+                    {{element.hour}}
+                    </mat-cell>
+                </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="monday">
+            <mat-header-cell *matHeaderCellDef> Lunes </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.monday">
+                    <!-- <div class="event" [ngStyle]="{'background-color': element.monday.color}">
+                        {{element.monday.course}}
+                    </div> -->
+                    <mat-button-toggle class="event" [ngClass]="{'disabled' : !element.monday.selected}" 
+                                        [ngStyle]="{'background-color': element.monday.color}" 
+                                        (change)="clicked($event.source.checked, element.monday.course, element.monday.location, element.monday.students)" 
+                                        [value]="element.monday.value" [checked]="element.monday.selected">
+                                        {{element.monday.course | titlecase }}
+                                    </mat-button-toggle>
+                </ng-container>
+            </mat-cell>
+        </ng-container>
+        
+        <!-- Weight Column -->
+        <ng-container matColumnDef="tuesday">
+            <mat-header-cell *matHeaderCellDef> Martes </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.tuesday">
+                    <ng-container *ngIf="element.tuesday">
+                        <!-- <div class="event" [ngStyle]="{'background-color': element.tuesday.color}">
+                            {{element.tuesday.course}}
+                        </div> -->
+                        <mat-button-toggle class="event" [ngClass]="{'disabled' : !element.tuesday.selected}" 
+                                            [ngStyle]="{'background-color': element.tuesday.color}"
+                                            (change)="clicked($event.source.checked, element.tuesday.course, element.tuesday.location, element.tuesday.students)" 
+                                            [value]="element.tuesday.value" [checked]="element.tuesday.selected">
+                                            {{element.tuesday.course | titlecase }}
+                                        </mat-button-toggle>
+                    </ng-container>
+                </ng-container>
+            </mat-cell>
+        </ng-container>
+        
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="wednesday">
+            <mat-header-cell *matHeaderCellDef>Miercoles</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.wednesday">
+                    <ng-container *ngIf="element.wednesday">
+                        <!-- <div class="event" [ngStyle]="{'background-color': element.wednesday.color}">
+                            {{element.wednesday.course}}
+                        </div> -->
+                        <mat-button-toggle class="event" [ngClass]="{'disabled' : !element.wednesday.selected}" 
+                                            [ngStyle]="{'background-color': element.wednesday.color}"
+                                            (change)="clicked($event.source.checked, element.wednesday.course, element.wednesday.location, element.wednesday.students)" 
+                                            [value]="element.wednesday.value" [checked]="element.wednesday.selected">
+                                            {{element.wednesday.course | titlecase }}
+                                        </mat-button-toggle>
+                    </ng-container>
+                </ng-container>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="thursday">
+            <mat-header-cell *matHeaderCellDef> Jueves </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.thursday">
+                    <ng-container *ngIf="element.thursday">
+                        <!-- <div class="event" [ngStyle]="{'background-color': element.thursday.color}">
+                            {{element.thursday.course}}
+                        </div> -->
+                        <mat-button-toggle class="event" [ngClass]="{'disabled' : !element.thursday.selected}" 
+                                            [ngStyle]="{'background-color': element.thursday.color}"
+                                            (change)="clicked($event.source.checked, element.thursday.course, element.thursday.location, element.thursday.students)" 
+                                            [value]="element.thursday.value" [checked]="element.thursday.selected">
+                                            {{element.thursday.course | titlecase }}
+                                        </mat-button-toggle>
+                    </ng-container>
+                </ng-container>
+            </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="friday">
+            <mat-header-cell *matHeaderCellDef> Viernes </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.friday">
+                    <ng-container *ngIf="element.friday">
+                        <!-- <div class="event" [ngStyle]="{'background-color': element.friday.color}">
+                            {{element.friday.course}}
+                        </div> -->
+                        <mat-button-toggle class="event" [ngClass]="{'disabled' : !element.friday.selected}" 
+                                            [ngStyle]="{'background-color': element.friday.color}"
+                                            (change)="clicked($event.source.checked, element.friday.course, element.friday.location, element.friday.students)" 
+                                            [value]="element.friday.value" [checked]="element.friday.selected">
+                                            {{element.friday.course | titlecase }}
+                                        </mat-button-toggle>
+                    </ng-container>
+                </ng-container>
+            </mat-cell>
+            </ng-container>
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <br>
+        <!-- <mat-form-field>
+        <mat-label>Metodo de contacto</mat-label>
+        <mat-select  [(value)]="contactMethod">
+            <mat-option *ngFor="let contact of contactMethods" [value]="contact">
+            {{contact}}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+        <br>
+        <br>
+        <ng-container *ngIf="contactMethod=='Otro'">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Ingresa un método de contacto" [(ngModel)]="newContactMethod">
+        </mat-form-field>
+        </ng-container> -->

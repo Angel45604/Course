@@ -33,9 +33,9 @@
           <td mat-cell *matCellDef="let user"> {{user.createdAt.seconds * 1000 | date: 'medium'}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="schedule">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Horarios </th>
-          <td mat-cell *matCellDef="let user"> {{user.schedule}} </td>
+        <ng-container matColumnDef="groups">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Grupos </th>
+          <td mat-cell *matCellDef="let user"> {{user.groups}} </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

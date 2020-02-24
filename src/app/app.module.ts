@@ -15,6 +15,7 @@ import {SignInComponent} from './sign-in/sign-in.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
 import {MatButtonModule} from '@angular/material/button'; 
+import {MatButtonToggleModule} from '@angular/material/button-toggle'; 
 import {MatCardModule} from '@angular/material/card'; 
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import {MatChipsModule} from '@angular/material/chips'; 
@@ -35,7 +36,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree'; 
 
+import { DialogOverviewExampleDialog } from './groups/groups.component';
+
 import { BottomSheetOverviewExampleSheet } from './pick-schedule/pick-schedule.component';
+import { BottomSheetGroups } from './pick-group/pick-group.component';
 
 import { CoursesComponent } from './courses/courses.component';
 import { SpecialCoursesComponent } from './special-courses/special-courses.component';
@@ -61,6 +65,9 @@ import { UserService } from './user.service';
 import { OverviewDialogComponent } from './overview-dialog/overview-dialog.component';
 import { SchedulesComponent } from './schedules/schedules.component';
 import { UserLinksComponent } from './user-links/user-links.component';
+import { PickGroupComponent } from './pick-group/pick-group.component';
+import { TrimPipe } from './trim.pipe';
+import { GroupsComponent } from './groups/groups.component';
 
 
 const appRoutes: Routes = [
@@ -71,7 +78,9 @@ const appRoutes: Routes = [
   {path: 'registered-users', component: RegisteredUsersComponent},
   {path: 'pick-schedule', component: PickScheduleComponent},
   {path: 'schedules', component: SchedulesComponent},
-  {path: 'user-links', component: UserLinksComponent}
+  {path: 'user-links', component: UserLinksComponent},
+  {path: 'pick-group', component: PickGroupComponent},
+  {path: 'groups', component: GroupsComponent}
 ]
 @NgModule({
   declarations: [
@@ -93,7 +102,12 @@ const appRoutes: Routes = [
     OverviewDialogComponent,
     SchedulesComponent,
     BottomSheetOverviewExampleSheet,
-    UserLinksComponent
+    DialogOverviewExampleDialog,
+    BottomSheetGroups,
+    UserLinksComponent,
+    PickGroupComponent,
+    TrimPipe,
+    GroupsComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +119,7 @@ const appRoutes: Routes = [
     MatAutocompleteModule,
     MatBottomSheetModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
@@ -136,6 +151,6 @@ const appRoutes: Routes = [
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
-  entryComponents: [BottomSheetOverviewExampleSheet]
+  entryComponents: [BottomSheetOverviewExampleSheet, BottomSheetGroups, DialogOverviewExampleDialog]
 })
 export class AppModule { }

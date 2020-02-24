@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 
 export class RegisteredUsersComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'email', 'idNo', 'createdAt', 'schedule'];
+  displayedColumns: string[] = ['name', 'email', 'idNo', 'createdAt', 'groups'];
 
   tableDataSource;
   checked = false;

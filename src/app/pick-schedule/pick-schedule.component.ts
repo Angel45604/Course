@@ -29,8 +29,8 @@ export class PickScheduleComponent implements OnInit {
   ELEMENT_DATA = [
     {monday: '8:30-10:00', tuesday: '', wednesday: '', thursday: '', friday: '8:30-10:00'},
     {monday: '10:00-11:30', tuesday: '', wednesday: '', thursday: '', friday: '10:00-11:30'},
-    {monday: '', tuesday: '11:30-13:00', wednesday: '', thursday: '11:30-13:00', friday: ''},
-    {monday: '13:00-14:30', tuesday: '', wednesday: '', thursday: '13:00-14:30', friday: ''},
+    {monday: '11:30-13:00', tuesday: '11:30-13:00', wednesday: '', thursday: '11:30-13:00', friday: '11:30-13:00'},
+    {monday: '13:00-14:30', tuesday: '', wednesday: '13:00-14:30', thursday: '13:00-14:30', friday: ''},
     {monday: '', tuesday: '', wednesday: '14:30-16:00', thursday: '14:30-16:00', friday: '14:30-16:00'},
     {monday: '', tuesday: '', wednesday: '16:00-17:30', thursday: '', friday: ''},
 
@@ -140,8 +140,8 @@ export class PickScheduleComponent implements OnInit {
 
 @Component({
   selector: 'bottom-sheet-overview-example-sheet',
-  template: `<h3>Horario registrado, nos vemos en clase!</h3>
-              <a href="https://chat.whatsapp.com/LG9vZwC2b58ITdibFRexxm">Unete al grupo de Whatsapp</a>`,
+  template: `<h3>Email confirmado, elige tus grupos!</h3>
+              <a href="https://cod-wa.web.app/pick-group">Elige tus grupos</a>`,
   styleUrls: ['./bottom-sheet-overview-example-sheet.css']
 })
 export class BottomSheetOverviewExampleSheet {

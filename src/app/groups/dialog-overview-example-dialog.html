@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{data.course}}</h1>
+<div mat-dialog-content>
+  <p>{{data.location}}</p>
+  <div class="list">
+      <ul *ngFor="let student of data.students">
+          <li>{{student}}</li>
+      </ul>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-stroked-button (click)="onNoClick()">Cerrar</button>
+</div>

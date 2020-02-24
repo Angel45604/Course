@@ -129,7 +129,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   register() {
     //console.log("User:", this.user);
     this.usersCollection.add({courses: this.user.courses, email: this.user.email, idNo: this.user.idNo, name: this.user.name, special: false, carreer: this.user.carreer});
-    this._snackBar.open('Registro Exitoso', 'x', {
+    this._snackBar.open('Registro exitoso, por favor revisa tu dirección de correo electrónico', 'x', {
       duration: 2000,
     }).afterDismissed().subscribe(() => {
       //console.log('The snack-bar was dismissed');

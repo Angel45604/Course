@@ -43,21 +43,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
       <br>
-      <mat-form-field>
-        <mat-label>Metodo de contacto</mat-label>
-        <mat-select  [(value)]="contactMethod">
-          <mat-option *ngFor="let contact of contactMethods" [value]="contact">
-            {{contact}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <br>
-      <br>
-      <ng-container *ngIf="contactMethod=='Otro'">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Ingresa un método de contacto" [(ngModel)]="newContactMethod">
-        </mat-form-field>
-      </ng-container>
       <br>
       <button mat-raised-button color="primary" (click)="send()">Aceptar</button>
       <br>

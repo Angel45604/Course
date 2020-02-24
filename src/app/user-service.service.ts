@@ -19,4 +19,12 @@ export class UserService {
     this.users = this.usersCollection.valueChanges();
     return this.users;
   }
+  
+  public async getUserByEmail(idNo, email) {
+    this.usersCollection = this.afs.collection('users', ref => {
+      return ref.where('idNo', '==', idNo).where('email', '==', email);
+    })
+    this.users = this.usersCollection.valueChanges();
+    return this.users;
+  }
 }

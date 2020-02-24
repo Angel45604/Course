@@ -10,3 +10,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #c2185b;
     color: #ffffff;
 }
+
+.mat-button-toggle-label-content {
+    line-height: normal !important; 
+    white-space: normal;
+    word-break: break-all;
+    line-height: normal;
+
+}
+
+.mat-dialog-container {
+    background-color: #3B3D62;
+}
+
+@media only screen and (min-width:360px) and (max-width:900px){
+    .cdk-overlay-pane {
+      width: 90vw !important;
+  }
+
+  }
